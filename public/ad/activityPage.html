@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>活动规则</title>
+</head>
+<link rel="stylesheet" href="/icon/iconfont.css">
+<link rel="stylesheet" href="/css/coupon.css">
+<link rel="stylesheet" href="/css/activitypage.css">
+<script src="https://hm.baidu.com/hm.js?4fad61221c5ec987b1c72cdf2819a289"></script>
+<body>
+    <div class="activityPage">
+        <div class="absoluteArea">
+            <div class="title">
+                <span>距活动结束：</span>
+                <b onclick="ruleClick()">活动规则</b>
+            </div>
+            <div class="timeShow">
+                <span id="dayTime"></span>
+                天
+                <span id="houTime"></span>
+                时
+                <span id="minTime"></span>
+                分
+                <span id="secTime"></span>
+                秒
+            </div>
+            <div class="one_btn" onclick="btnClick()"></div>
+            <div style="display:none" class="BtnPhone">
+                <input type="text" placeholder="请输入手机号" >
+                <!-- :class="{'successph': btnColor, 'failph': !btnColor}" class="successph" -->
+                <div class="phone_btn_cl"></div>
+            </div>
+        </div>
+        <!--提示成功-->
+        <div class="couponSuc" style="display:none">
+            <div class="couponSucCont">
+                <div>
+                    <img class="hook1" src="../img/hook1.png">
+                </div>
+                <p class="awardText"></p>
+                <span Onclick="goCheck()" >去查看</span>
+                <img class="close" Onclick="closeFun()" src="../img/close.png">
+            </div>
+        </div>
+
+        <!--活动规则-->
+        <div class="activityRules" onclick="determineFun()">
+            <div class="activityMian" onclick="event.stopPropagation()">
+            <div class="title"><span>活动规则</span></div>
+            <ul>
+                <!-- <li v-for="(item, index) in actRule" :key="index">{{item}}</li> -->
+            </ul>
+            <div class="determine" onclick="determineFun()">确定</div>
+            </div>
+        </div>
+        <!--提示-->
+        <div class="toast">
+            <span></span>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.staticfile.org/jquery/1.8.1/jquery.min.js"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+<script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
+<script type="text/javascript" src="../house/js/crypto-js.js"></script>
+<script type="text/javascript" src="../house/js/http.js"></script>
+<script type="text/javascript" src="../house/js/tool.js"></script>
+<script type="text/javascript" src="../house/js/acticitypage.js"></script>
+</html>

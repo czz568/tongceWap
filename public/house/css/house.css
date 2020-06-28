@@ -1,0 +1,1492 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+html,body{
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  max-width: 750PX;/*no*/
+  margin:0 auto;
+}
+body{
+  height: 100%;
+}
+html::-webkit-scrollbar,body::-webkit-scrollbar,.houseShare_dynamic_active::-webkit-scrollbar,
+.houseStyleMess::-webkit-scrollbar,.mao::-webkit-scrollbar,.houseTag::-webkit-scrollbar{
+  display: none; /* Chrome Safari */
+}
+.houseStyleMess{
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  width: 100%;
+}
+.houseShare_dynamic_active,.houseTag{
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  width: 100%;
+}
+.mao{
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+a{
+  text-decoration: none;
+  color: #999;
+}
+/*正常的未被访问过的链接*/
+a:link {
+  text-decoration: none;
+}
+/*已经访问过的链接*/
+a:visited {
+  text-decoration: none;
+}
+/*鼠标划过(停留)的链接*/
+a:hover {
+  text-decoration: none;
+}
+/* 正在点击的链接*/
+a:active {
+  text-decoration: none;
+}
+em{
+  font-style: normal;
+}
+.sample {
+    position: absolute;
+  }
+  .anchorBL {
+    display: none!important;
+  }
+  .draw_img {
+    width: 30px;
+    height: 30px;
+  }
+  
+ 
+  .mapSqure {
+    width: 95px;
+    height: 32px;
+    background-color: white;
+    position: absolute;
+    top: -50px;
+    border-radius: 8px;
+    left: -31px;
+    color: #1B1833;
+    font-size: 15px;
+    text-align: center;
+    line-height: 36px;
+  }
+  .mapSqure::after {
+    content: '';
+    width: 0;
+    height: 0;
+    position: absolute;
+    border: 12px solid;
+    bottom: -23px;
+    left: 36px;
+    border-color: #fff transparent transparent;
+  }
+  .ml3 {
+    margin-left: 15px;
+  }
+  .line {
+    border-bottom: 1px solid #EFEFEF;
+    margin: 14px 0;
+  }
+  .ml5 {
+    margin-left: 15px;
+  }
+  .mb5 {
+    margin-bottom: 15px;
+  }
+  .f2{
+    flex: 5!important;
+  }
+  .app {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .appScroll {
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    width: 100%;
+    overflow: hidden;
+    z-index: 2;
+  }
+  .houseShare {
+    height: 100%;
+    background-color: #F8F8F8;
+    /* overflow-y: auto;
+    overflow-x: hidden; */
+  }
+  .houseShare .TLeft {
+    border-left: 2px solid #00A4FF;
+    margin-right: 5px;
+    height: 16px;
+    float: left;
+  }
+  .houseShare .lin7 {
+    line-height: 17px;
+    margin-bottom: 24px;
+  }
+  .houseShare .p3 {
+    padding-right: 15px;
+  }
+  .houseShare .tac {
+    text-align: center;
+  }
+  .houseShare .tar {
+    text-align: right;
+  }
+  .houseShare .baseColor {
+    color: #00A4FF !important;
+  }
+  .houseShare .fs10 {
+    font-size: 10px;
+  }
+  .houseShare .disLB {
+    display: inline-block;
+  }
+  .houseShare .fl {
+    float: left;
+  }
+  .houseShare .mt4 {
+    margin-top: 4px;
+  }
+  .houseShare .mt2 {
+    margin-top: 2px;
+  }
+  .colorH .dynamic_actives_line{
+    border-top: 0.053333rem solid #CFCFCF !important;
+  }
+  .houseShare .clearfloat:after {
+    display: block;
+    clear: both;
+    content: "";
+    visibility: hidden;
+    height: 0;
+  }
+  .houseShare .clearfloat {
+    zoom: 1;
+  }
+  .houseShare .houseShare_baseMess_buttons {
+    background-color: #F1F9FF;
+    height: 34px;
+    color: #00A4FF;
+    width: 100%;
+    text-align: center;
+    line-height: 34px;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .houseShare .dynamic_title {
+    color: #3D3E3F;
+    font-size: 16px;
+    font-weight: 700;
+    display: inline-block;
+  }
+  .houseShare_lunbo {
+    width: 100%;
+    height: 375px;
+    position: relative;
+  }
+  .houseShare_lunbo .lunbo_img {
+    height: 100%;
+  }
+  .houseShare_lunbo .lunbo_img_current {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+  }
+  .houseShare_lunbo .lunbo_img_playDiv {
+    /* position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    height: 331px; */
+  }
+  .houseShare_lunbo .lunbo_img_play {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    left: 50%;
+    top: 133px;
+    position: absolute;
+    transform: translateX(-50%);
+    background: url(../../img/sprint.png);
+    background-position: 0px -202px;
+    background-size: 186px 196px;
+  }
+  .houseShare_lunbo .lunbo_img_play.VR {
+    background-position: 0 0;
+  }
+  
+  
+  .houseShare_lunbo .lunbo_img_change {
+     position: absolute;
+     bottom: 24px;
+     height: 22px;
+     width: 100%;
+     text-align: center;
+     bottom: 70px;
+     z-index: 6;
+  }
+  .houseShare_lunbo .lunbo_img_span {
+    width: 44px;
+    height: 100%;
+    background-color: white;
+    border-radius: 10px;
+    display: inline-block;
+    text-align: center;
+    line-height: 24px;
+    margin-right: 8px;
+    font-size: 11px;
+    line-height: 22px;
+  }
+  .lunbo_img_num{
+    position: absolute;
+    right: 0;
+    color: rgba(255,255,255,0.6);
+    font-size: 10px;
+    padding: 5px 4px 5px 10px;
+    background-color: rgba(0,0,0,0.6);
+    border-radius: 100pt 0pt 0pt 100pt;
+    display: none;
+  }
+  .houseShare_lunbo .lunbo_img .spanColor {
+    background-color: #00A4FF;
+    color: white;
+  }
+  .houseShare_lunbo .lunbo_price {
+    height: 52px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    z-index: 6;
+  }
+  .houseShare_lunbo .lunbo_price_div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+  }
+  .houseShare_lunbo .lunbo_price_img {
+    width: 100%;
+    height: 100%;
+  }
+  .houseShare_lunbo .lunbo_price_mess {
+    color: #A9A8AE;
+    font-size: 12px;
+    margin: 10px 0 0 15px;
+    display: inline-block;
+  }
+  .houseShare_lunbo .lunbo_price_img2 {
+    width: 30px;
+    height: 13px;
+  }
+  .houseShare_lunbo .lunbo_price_num {
+    font-size: 24px;
+    color: #F12224;
+  }
+  .lunbo_price_num span{
+     color: #FF664F;
+     font-size: 12px;
+     margin-left: -6px;
+  }
+  .houseShare_baseMess {
+    width: 100%;
+    /* height: 264px; */
+    background-color: white;
+    padding: 24px 15px 18px 15px;
+    position: relative;
+    box-sizing: border-box;
+  }
+  .houseShare_baseMess_spanDiv1 {
+    margin: 10px 0 15px 0;
+  }
+  .houseShare_baseMess_spanDiv1 .spanList {
+    background-color: #F0F4F4;
+    padding: 2px 3px;
+    color: #929292;
+    font-size: 12px;
+    border-radius: 4px;
+    margin-right: 3px;
+    display: inline-block;
+    margin-bottom: 3px;
+  }
+  .houseShare_baseMess_span1 {
+    color: #3D3E3F;
+    font-size: 20px;
+    float: left;
+    margin-right: 5px;
+  }
+  .houseShare_baseMess_span2 {
+    color: rgba(0,164,255);
+    border-radius: 2px;
+    background-color: rgba(0,164,255,0.1);
+    display: inline-block;
+    text-align: center;
+    padding: 0px 6px;
+    font-size: 10px;
+    margin-right: 2px;
+    margin-top: 4px;
+    line-height: 16px;
+    height: 16px;
+  }
+  .houseShare_baseMess_span3 {
+    background-color: rgba(255,131,83,0.1);
+    color: #FF8252;
+    margin-left: 0;
+  }
+  .houseShare_baseMess_spanMess {
+    color: #6D6D6D;
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .houseShare_baseMess_spanMess .spanMessStar {
+    width: 13px;
+    height: 11px;
+  }
+  .houseShare_baseMess_live {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: 15px;
+    top: -5px;
+  }
+  .houseShare_baseMess_live .liveMess {
+    width: 100%;
+    height: 100%;
+  }
+  .houseShare_baseMess_house {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .houseShare_baseMess_house .houseSpan {
+    width: 55%;
+    color: #6D6D6D;
+    font-size: 13px;
+    margin-bottom: 10px;
+    font-weight: 400;
+  }
+  .houseShare_baseMess_house .houseSpan1 {
+    width: 45%;
+    color: #6D6D6D;
+    font-size: 13px;
+    margin-bottom: 10px;
+    font-weight: 400;
+  }
+  .houseShare_baseMess_buttons {
+    background-color: #F4F8F8;
+    height: 34px;
+    color: #52C196;
+    width: 100%;
+    text-align: center;
+    line-height: 34px;
+  }
+  .houseShare_baseMess_footer {
+    margin: 8px 0 0;
+    color: #6D6D6D;
+    font-size: 13px;
+  }
+  .houseShare_baseMess_footer .footerImg {
+    position: absolute;
+    width: 32px;
+    height: 22px;
+    right: 20px;
+    bottom: 15px;
+  }
+  .houseShare_alertmess {
+    height: 30px;
+    font-size: 10px;
+    line-height: 30px;
+    text-align: center;
+    color: #999999;
+  }
+  .houseShare_alertmess .alertmessImg {
+    width: 100%;
+    height: 100%;
+  }
+  .houseShare_houseStyle,
+  .houseShare_questions {
+    background-color: #fff;
+    padding: 20px 15px 15px 15px;
+    margin-top: 10px;
+  }
+  .houseShare_houseStyle .houseStyleTMess,
+  .houseShare_questions .houseStyleTMess {
+    color: #3D3E3F;
+    font-size: 16px;
+    font-weight: 700;
+    display: inline-block;
+  }
+  .houseShare_houseStyle .houseStyleTR,
+  .houseShare_questions .houseStyleTR {
+    float: right;
+  }
+  .houseShare_houseStyle .houseStyles,
+  .houseShare_questions .houseStyles {
+    font-size: 16px;
+    color: #A9A8AE;
+    margin-right: 14px;
+  }
+  .houseShare_houseStyle .houseStyleMess,
+  .houseShare_questions .houseStyleMess {
+    margin-top: 20px;
+    display: flex;
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: auto;
+    margin-bottom: 15px;
+    height: 260px;
+  }
+  .houseShare_houseStyle .houseStyleMess_all,
+  .houseShare_questions .houseStyleMess_all {
+    float: left;
+    margin-right: 13px;
+    display: inline-block;
+  }
+  .houseStyleMess_imgDiv{
+    position: relative;
+  }
+  .houseStyleMess_imgDivBottom{
+    position: absolute;
+    width: 100%;
+    height: 28px;
+    bottom: 14px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    text-align: center;
+    line-height: 28px;
+    font-size: 12px;
+  }
+  .houseShare_houseStyle .houseStyleMess_img,
+  .houseShare_questions .houseStyleMess_img {
+    width: 202px;
+    height: 166px;
+    margin-bottom: 9px;
+  }
+  .houseShare_houseStyle .houseStyleMess_style,
+  .houseShare_questions .houseStyleMess_style {
+    font-size: 15px;
+    color: #1B1833;
+    font-weight: 700;
+  }
+  .houseShare_houseStyle .houseStyleMess_spans,
+  .houseShare_questions .houseStyleMess_spans,
+  .houseShare_spread .houseStyleMess_spans{
+    color: white;
+    border-radius: 2px;
+    background-color: #FF824B;
+    display: inline-block;
+    text-align: center;
+    margin-left: 5px;
+    padding: 1px 4px;
+    font-size: 10px;
+  }
+  .houseShare_spread .houseStyleMess_spans{
+     margin-left: 0;
+  }
+  .houseShare_houseStyle .houseStyleMess_area,
+  .houseShare_questions .houseStyleMess_area {
+    margin: 8px 0 10px 0;
+    color: #706F81;
+    font-size: 13px;
+  }
+  .houseShare_houseStyle .houseStyleMess_price,
+  .houseShare_questions .houseStyleMess_price {
+    color: #F12224;
+    font-size: 15px;
+    font-weight: 700;
+  }
+  .houseShare_dynamic {
+    background-color: white;
+    padding: 20px 0 20px 15px;
+    margin-top: 10px;
+  }
+  .houseShare_dynamic_active {
+    width: 100%;
+    display: flex;
+    overflow-y: auto;
+  }
+  .houseShare_dynamic .dynamic_actives {
+    width: 90px;
+  }
+  .houseShare_dynamic .dynamic_actives_divs {
+    height: 21px;
+    position: relative;
+    width: 90px;
+  }
+  .houseShare_dynamic .dynamic_actives_img {
+    width: 21px;
+    height: 21px;
+    position: absolute;
+    border-radius: 50%;
+    background-color: #00A4FF;
+    color: white;
+    text-align: center;
+    line-height: 19px;
+  }
+  .colorH .dynamic_actives_img {
+    background-color: #CFCFCF;
+  }
+  .houseShare_dynamic .dynamic_actives_img .iconfont{
+    font-size: 12px;
+  }
+  .colorH .dynamic_actives_title,.colorH .dynamic_actives_name{
+    color: #CCC;
+  }
+  .houseShare_dynamic .dynamic_actives_line {
+    width: 100%;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 11px;
+    border-top: 2px solid #00A4FF;
+  }
+  .houseShare_dynamic .dynamic_actives_title {
+    margin: 6px 0 5px;
+    color: #000000;
+    font-size: 12px;
+  }
+  .houseShare_dynamic .dynamic_actives_name {
+    color: #686868;
+    font-size: 12px;
+  }
+  .houseShare_dynamic_timeing {
+    padding-right: 18px;
+    margin-top: 24px;
+  }
+  .houseShare_dynamic_timeing .right_time {
+    color: #CBCBCB;
+    font-size: 12px;
+  }
+  .houseShare_dynamic_timeing .right_title {
+    font-size: 16px;
+    color: #282828;
+    margin: 15px 0 10px;
+    font-weight: 700;
+  }
+  .houseShare_dynamic_timeing .right_message {
+    color: #6A6F70;
+    font-size: 14px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+  }
+  .houseShare_dynamic .leftTimes {
+    float: left;
+    position: relative;
+    width: 8px;
+    height: 110px;
+    margin-right: 9px;
+  }
+  .houseShare_dynamic .leftTimes_title {
+    width: 9px;
+    height: 9px;
+    border-radius: 8px;
+    position: absolute;
+    background-color: #D8D8D8;
+  }
+  .houseShare_dynamic .leftTimes_line {
+    position: absolute;
+    height: 100%;
+    left: 4px;
+    border-left: 1px solid #D8D8D8;
+  }
+  .houseShare_spread,
+  .houseShare_periphery {
+    margin-top: 10px;
+    padding: 20px 20px 15px;
+    background-color: white;
+  }
+  .houseShare_spread .spread_main,
+  .houseShare_periphery .spread_main {
+    padding-left: 5px;
+  }
+  .houseShare_spread .spread_main_img,
+  .houseShare_periphery .spread_main_img {
+    width: 100%;
+    height: 21em;
+  }
+  .houseShare_spread .spread_main_divs,
+  .houseShare_periphery .spread_main_divs {
+    margin: 10px 0 16px;
+    display: flex;
+  }
+ 
+  .houseShare_periphery .spread_main_divs > div {
+    flex: 1;
+  }
+  .houseShare_spread .spread_main_divs > div{
+    flex:4;
+  }
+  .houseShare_spread .spread_main_divs > div > div,
+  .houseShare_periphery .spread_main_divs > div > div {
+    color: #1B1833;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+  .houseShare_spread .spread_main_divs > div .divsSpan,
+  .houseShare_periphery .spread_main_divs > div .divsSpan {
+    color: #6D6D6D;
+    font-size: 13px;
+  }
+  .houseShare_spread .spread_main_divs .r14,
+  .houseShare_periphery .spread_main_divs .r14 {
+    margin-right: 14px;
+  }
+  .houseShare_periphery .spread_main_styles {
+    margin-top: 10px;
+    width: 200%;
+  }
+  .houseShare_periphery .spread_main_styles > div {
+    display: inline-block;
+    margin-right: 25px;
+  }
+  .houseShare_periphery .spread_main_styles .styles_divs {
+    color: #323232;
+    font-size: 15px;
+  }
+  .houseShare_periphery .busList {
+    margin: 15px 0;
+  }
+  .houseShare_periphery .busList_left {
+    color: #323232;
+    font-size: 13px;
+  }
+  .houseShare_periphery .busList_center {
+    color: #C0C3CA;
+    font-size: 13px;
+    max-width: 56%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+  }
+  .houseShare_periphery .busList_right {
+    float: right;
+    color: #A9A8AE;
+    font-size: 11px;
+  }
+  .houseShare_periphery .busList_right_img {
+    width: 6px;
+    height: 9px;
+  }
+  .houseShare_questions {
+    margin-top: 10px;
+    background-color: white;
+    padding: 20px 15px;
+  }
+  .houseShare_questions .questions {
+    margin-bottom: 5px;
+  }
+  .houseShare_questions .questions_ask {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 17px;
+    color: white;
+    background-color: #00A4FF;
+    display: inline-block;
+    margin: 0 6px 15px 0;
+    font-size: 12px;
+  }
+  .houseShare_questions .questions_askMess {
+    color: #1B1833;
+    font-size: 13px;
+  }
+  .houseShare_questions .questions_divs {
+    display: flex;
+  }
+  .houseShare_questions .questions_answer {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 17px;
+    color: white;
+    background-color: #FF714B;
+    display: inline-block;
+    margin-right: 6px;
+    flex: 0 0 16px;
+  }
+  .houseShare_questions .questions_answerMess {
+    color: #A9A8AE;
+    font-size: 13px;
+  }
+  .houseShare_questions .questions:first-child {
+    margin-top: 27px;
+  }
+  .houseShare_questions .questions:last-child {
+    margin-bottom: 20px;
+  }
+  .houseShare_housekeeper {
+    padding: 20px 0 0px 0px;
+    background-color: white;
+    margin-top: 10px;
+  }
+  .houseShare_housekeeper .ml5 {
+    margin-left: 15px;
+  }
+  .houseShare_housekeeper .housekeeper_title {
+    display: inline-block;
+    margin-top: 12px;
+  }
+  .housekeeper_title .iconlive_tick{
+    font-size: 12px;
+    color: #00A4FF;
+  }
+  .houseShare_housekeeper .housekeeper_title_img {
+    width: 11px;
+    height: 11px;
+    margin: 0 1px 0 10px;
+    float: left;
+    margin-top: 2px;
+  }
+  .houseShare_housekeeper .housekeeper_title_mess {
+    color: #999999;
+    font-size: 12px;
+  }
+  .houseShare_housekeeper .housekeeper_img {
+    margin: 0 11px 15px 20px;
+    width: 60px;
+    height: 60px;
+    float: left;
+    border-radius: 50%;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+  }
+  .houseShare_housekeeper .housekeeper_img > img {
+    width: 100%;
+    height: 100%;
+  }
+  .houseShare_housekeeper .housekeeper_name {
+    font-size: 16px;
+    color: #222222;
+    font-weight: 700;
+    margin: 8px 5px 6px 0;
+    display: inline-block;
+    float: left;
+  }
+  .houseShare_housekeeper .housekeeper_satisfaction {
+    padding: 3px 6px;
+    background-color: #F1F9FF;
+    color: #666;
+    font-size: 8px;
+    border-radius: 9px;
+    text-align: center;
+    display: inline-block;
+    margin: 10px 0 8px 2px;
+  }
+  .houseShare_housekeeper .housekeeper_spans {
+    color: #999999;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .houseShare_housekeeper .housekeeper_divs {
+    position: relative;
+    padding-top: 14px;
+  }
+  .houseShare_housekeeper .housekeeper_divs:first-child{
+    padding-top: 0;
+  }
+  .houseShare_housekeeper .housekeeper_pos {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .houseShare_housekeeper .housekeeper_pos_img {
+    font-size: 25px;
+    color: #00A4FF;
+  }
+  .houseShare_housekeeper .housekeeper_pos_img:last-child {
+    margin-right: 0;
+  }
+  .houseShare_housekeeper .housekeeper_line {
+    border-top: 1px solid #EDEDED;
+    width: 100%;
+    margin-bottom: 14px;
+  }
+  .houseShare_introduce {
+    margin-top: 10px;
+    background-color: white;
+    padding-top: 20px;
+  }
+  .houseShare_introduce .introduce_imgs {
+    width: 100%;
+  }
+  .houseShare_recommend {
+    padding: 20px 0px 0 15px;
+    margin-top: 10px;
+    background-color: white;
+  }
+  .houseShare_recommend .recommend_lists_one {
+    width: 105px;
+    height: 85px;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 15px;
+  }
+  .houseShare_recommend .recommend_lists_img {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+  }
+  .houseShare_recommend .recommend_lists_address {
+    color: #282828;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    line-height: 16px;
+  }
+  .houseShare_recommend .recommend_lists_price {
+    color: #FF4750;
+    margin-bottom: 4px;
+    font-size: 10px;
+    line-height: 16px;
+  }
+  .houseShare_recommend .recommend_lists .recommend_lists_p {
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .houseShare_recommend .recommend_lists_aere {
+    color: #6A6F70;
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
+  .houseShare_recommend .recommend_lists_goodList {
+    padding: 3px 4px;
+    background-color: #F1F9FF;
+    color: #999;
+    font-size: 10px;
+    margin-right: 3px;
+    border-radius: 2px;
+  }
+  .houseShare_recommend .recommend_mess {
+    margin: 10px 0 15px 0;
+    background-color: #FFF9F3;
+    color: #A9A29A;
+    font-size: 10px;
+    height: 18px;
+    line-height: 20px;
+    display: inline-block;
+    padding-right: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .houseShare_recommend .recommend_mess_img {
+    width: 14px;
+    height: 14px;
+    float: left;
+    margin: 2px 4px 0 0;
+  }
+  .houseShare_recommend .recommend_line {
+    border-top: 1px solid #EFEFEF;
+    margin-bottom: 15px;
+  }
+  .houseShare_declare {
+    margin: 15px 0 0px 0;
+    padding: 0 23px 30px 15px;
+    display: flex;
+  }
+  .houseShare_declare_imgs {
+    flex: 0 0 13px;
+    height: 15px;
+    margin-right: 5px;
+  }
+  .houseShare_declare_msgs {
+    flex: 1;
+    color: #929292;
+    font-size: 10px;
+  }
+  .houseShare_declare_msgs .msgs_title {
+    margin: 4px 0 10px;
+  }
+  .houseShare_declare_msgs .msgs_main {
+    line-height: 16px;
+  }
+  .houseShare_declare_currentImg {
+    font-size: 14px!important;
+    color: #929292;
+    margin-top: 5px;
+    display: inline-block;
+  }
+  .houseShare_footer {
+    position: fixed;
+    height: 48px;
+    width: 100%;
+    bottom: 0;
+    left: 50%;
+    padding: 10px;
+    background-color: white;
+    box-sizing: border-box;
+    z-index: 999;
+    padding: 0 13px;
+    display: flex;
+    justify-content: space-around;
+
+    max-width: 750PX;/*no*/
+    transform: translateX(-50%);
+
+
+  }
+  .pc .houseShare_footer{
+    width: 750px;
+    margin: auto;
+  }
+  .houseShare_footer .footerButton {
+    background-color: #00A4FF;
+    color: white;
+    width: 140px;
+    height: 38px;
+    border-radius: 2px;
+    display: inline-block;
+    font-size: 14px;
+    text-align: center;
+    line-height: 38px;
+    margin-top: 5px;
+  }
+  .houseShare_footer .houseShare_footer_online{
+    line-height: inherit;
+    font-size: 9px;
+    padding-top: 6px;
+    box-sizing: border-box;
+  }
+  .houseShare_footer_online span:first-child{
+    font-size: 14px;
+    line-height: 14px;
+  }
+  .houseShare_footer_telphone {
+    background-color: #FF714B !important;
+    float: right;
+  }
+  .model {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  .model .model-content {
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 327px;
+    height: 304px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  .model .model-content .close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    font-size: 24px;
+    font-size: 17px;
+    color: #fff;
+  }
+  .model .model-content .title {
+    color: #222222;
+    font-size: 17px;
+    font-weight: 700;
+    margin: 5px 0 10px 0;
+  }
+  .model .model-content .gray {
+    font-size: 14px;
+    color: #666666;
+    margin-bottom: 25px;
+  }
+  .model .model-content .btn {
+    margin: 0 auto;
+    width: 140px;
+    height: 40px;
+    background-color: #FF8252;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 14px;
+    line-height: 40px;
+    text-align: center;
+  }
+  .model .model-content .img-box {
+    width: 100%;
+    height: 160px;
+  }
+  .model .model-content .img-box img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  /* 优惠券开始 */
+  .coupon{
+     padding: 13px 15px 20px; 
+     background-color: white;
+     
+  }
+  .couponList{
+    border-radius: 5px;
+    height: 60px;
+    margin-bottom: 15px;
+    position: relative;
+    background: url(../../img/bg_coupon.jpg);
+    background-size: 100% 100%;
+  }
+  .couponList:last-child{
+    margin-bottom: 0;
+  }
+  .couponList.over{
+    background-color: rgba(252,252,252);
+ }
+ .couponList_left{
+   height: 100%;
+   width: 3.5px;
+   background-color: #FFB2A7;
+   float: left;
+ }
+ .couponList_mainLift{
+   height: 100%;
+   width: 79%;
+ }
+ /* .couponList:before{
+   content: '';
+    width: 16px;
+    height: 8px;
+    position: absolute;
+    background-color: white;
+    border-radius: 0 0 16px 16px;
+    z-index: 2;
+    left: 79%;
+    transform: translateX(-50%);
+    top: -2px;
+    border: 1px solid rgba(255,102,79,0.5);
+    border-top-color: transparent;
+ }
+ .couponList::after{
+  content: '';
+   width: 16px;
+   height: 8px;
+   position: absolute;
+   background-color: white;
+   border-radius: 16px 16px 0 0 ;
+   z-index: 2;
+   left: 79%;
+   transform: translateX(-50%);
+   bottom: -2px;
+   border: 1px solid rgba(255,102,79,0.5);
+   border-bottom-color: transparent;
+} */
+.couponList_mainLift{
+  padding:14px 0 0 11px;
+  box-sizing: border-box;
+
+}
+.couponList_mainLift_span1{
+  color: #FF664F;
+  font-size: 13px;
+  margin-bottom: 8px;
+  width: 95%;
+}
+.couponList_mainLift_span2{
+  font-size: 12px;
+  color: #999;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+  width: 95%;
+}
+.couponList_mainLift_p{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+  width: 87%;
+}
+.couponList_mainRight_button{
+  border-radius: 13px;
+    color: white;
+    font-size: 9px;
+    width: 54px;
+    text-align: center;
+    height: 26px;
+    line-height: 26px;
+    background-color: #FF664F;
+    display: inline-block;
+    margin-right: 7px;
+}
+.couponList_mainRight{
+  position: absolute;
+    right: 0;
+    top: 17px;
+}
+.couponList_mainRight_mess{
+  font-style: normal;
+  display: inline-block;
+  /* -webkit-transform-origin: 0% 0%;
+  -webkit-transform: scale(0.8); */
+}
+.couponList.over .couponList_mainRight_button{
+  background-color: white;
+  border:1px solid #ccc;
+  color: #999;
+}
+.introduce_main{
+  padding-top: 7px;
+  text-align: center;
+
+}
+.introduce_img{
+  width: 120px;
+  height: 90px;
+  margin-bottom: 28px;
+
+}
+.couponList_mainLift_span1 .iconicon_currency{
+  font-size: 12px;
+    float: left;
+    margin: 2px 2px 0 0;
+}
+/* 楼盘介绍 */
+.introduce_main{
+  padding-bottom: 17px;
+}
+.introduce_mess{
+  text-align: left;
+  padding: 0 20px;
+  font-size: 12px;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  
+  -webkit-box-orient: vertical;
+}
+.introduce_mess.active{
+  -webkit-line-clamp:4;
+}
+.introduce_more{
+  display: block;
+    margin-top: 10px;
+    color: #00A4FF;
+    font-size: 13px;
+    text-align: left;
+    padding-left: 20px;
+    display: none;
+
+}
+.housekeeperList{
+  border-bottom: 1px solid #EDEDED;
+}
+.housekeeper_divs:last-child .housekeeperList{
+  border-bottom: none;
+}
+.recommend_lists_address .houseShare_baseMess_span2{
+  padding: 0px 2px;
+  margin: 2px 2px 0 5px;
+}
+.recommend_lists{
+  border-bottom: 1px solid #EFEFEF;
+}
+.listFor{
+  padding-top: 15px;
+}
+.listFor:first-child{
+  padding-top: 0;
+}
+/* 底部footer */
+.footerMain{
+  width:100%;
+  background-color: white;
+  font-size: 12px;
+  color:#666666 !important;
+  padding: 10px 15px 15px;
+  border-bottom: 1px solid #EFEFEF;
+}
+.houseTag_span{
+   padding: 6px 8px;
+    border: 1px solid #E6E6E6;
+    border-radius: 18px;
+    margin: 0 6px 0px 0;
+    display: inline-block;
+    color: #999999;
+    font-size: 12px; 
+}
+.houseTag_span:first-child{
+  padding: 6px 12px;
+}
+.footerActive{
+  border-color: #666;
+  color: #333333;
+}
+.houseLink{
+  display: inline-block;
+    color: #666666;
+    font-size: 12px;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+.footerUrl{
+  background-color: white;
+  padding: 10px 15px 15px;
+  color: #999;
+  font-size: 11px;
+  margin-bottom: 60px;
+  line-height: 18px;
+  margin-bottom: 48px;
+}
+.houseShare_footer_star{
+  height: 44px;
+  width: 44px;
+  line-height: 44px;
+  text-align: center;
+   
+}
+.houseShare_footer_star .iconfavorite_line{
+
+}
+.iconarrow_more{
+  font-size: 12px!important;
+    color: #D1D1D1;
+    margin-left: 2px;
+    margin-top: 0px;
+    float: right;
+}
+.houseStyleTR{
+  font-size: 13px;
+  float: right;
+}
+.houseShare_dynamic .houseStyleTR,.houseShare_housekeeper .houseStyleTR{
+  margin-right: 15px;
+}
+.spread_main_all{
+  position: relative;
+}
+.allpoint{
+    position: absolute;
+    background: url(../../img/bubble_Details@2x.png);
+    width: 32px;
+    height: 19px;
+    background-size: 100% 100%;
+    font-size: 11px;
+    text-align: center;
+    color: #1B1833;
+}
+.allpoint.active{
+  background: url(../../img/bubble__Details_pro@2x.png);
+  background-size: 100% 100%;
+  color: white;
+}
+#coverPonit{
+  background: url(../../img/sprint.png);
+  background-position: -100px -100px;
+}
+#highlights_img{
+  height: 100%;
+}
+.pc .cellQuan{
+   left: 50%;
+   transform: translate(18rem);
+}
+.cellQuan{
+  position: fixed;
+    right: 16px;
+    bottom: 80px;
+    background: url(../../img/sprint.png);
+    background-size: 186px 196px;
+    background-position: -66px -114px;
+    width: 60px;
+    height: 60px;
+    z-index: 100;
+}
+
+.backHome{
+  position: fixed;
+  right: 16px;
+  bottom: 150px;
+  background: url(../../img/sprint.png);
+  background-size: 186px 196px;
+  width: 60px;
+  height: 60px;
+  z-index: 100;
+  background-position: -67px -40px;
+}
+
+
+.modelSearch{
+  position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.7);
+    z-index: 999;
+    display: none;
+}
+.modelMain{
+  position: fixed;
+    top: 45%;
+    left: 50%;
+    width: 320px;
+    overflow: hidden;
+    font-size: 16px;
+    background-color: #fff;
+    border-radius: 16px;
+    -webkit-transform: translate3d(-50%,-50%,0);
+    transform: translate3d(-50%,-50%,0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: .3s;
+    transition: .3s;
+    -webkit-transition-property: opacity,-webkit-transform;
+    transition-property: opacity,-webkit-transform;
+    transition-property: transform,opacity;
+    transition-property: transform,opacity,-webkit-transform;
+}
+.modelMain_header{
+  font-weight: 700;
+  font-size: 14px;
+  padding-top: 24px;
+  line-height: 24px;
+  text-align: center;
+  font-size: 17px;
+
+}
+.modelMain_content{
+  padding: 26px 40px 30px;
+  border-bottom: 1px solid #DCDCDC;
+}
+.content_name{
+  padding: 10px 16px;
+  margin-bottom: 10px;
+  border: 1px solid #DCDCDC;
+  border-radius: 22px;
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px 16px;
+  overflow: hidden;
+  color: #323233;
+  font-size: 14px;
+  line-height: 24px;
+  background-color: #fff;
+}
+input{  
+	background:none;  
+	outline:none;  
+	border:none;
+}
+.modelMain_footer{
+  display: flex;
+    height: 55px;
+}
+.model_footer_button{
+    flex: 1;
+    text-align: center;
+    line-height: 55px;
+    border-right: 1px solid #ccc;
+    color: #000000;
+    /* height: 55px; */
+    font-size: 17px;
+}
+.model_footer_button.sure{
+   border-right: none;
+   color: #00A4FF;
+}
+.content_error{
+    color: red;
+    text-align: center;
+    display: block;
+    margin: -9px 0 6px 0;
+    display: none;
+  
+}
+.iconfavorite_surface{
+  color: red;
+}
+.houseShare_footer_star .iconfont{
+   font-size: 26px;
+}
+.mao{
+  position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    padding-left: 7px;
+    height: 44px;
+    z-index: 7;
+    overflow-y: auto;
+    white-space: nowrap;
+    display: none;
+}
+.maoList{
+   height: 100%;
+   line-height: 44px;
+   margin: 0 13px;
+   font-size: 16px;
+   color: #727272;
+
+}
+.maoList.active{
+  color: #00A4FF;
+}
+.rightGet .modelMain_header{
+    padding: 35px 0;
+    font-weight: 700;
+    color: #353535;
+    border-bottom: 1px solid #ccc;
+}
+.toast{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0,0,0,0.6);
+  color: white;
+  padding: 9px 18px;
+  border-radius: 8px;
+}
+.houseTag{
+    white-space: nowrap;
+    overflow-y: auto;
+}
+.houseStyleMess_all>div:nth-child(2){
+  overflow: hidden;
+}
+.toast{
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 6px 20px;
+  border-radius: 16px;
+  white-space: nowrap;
+  color: white;
+}

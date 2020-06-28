@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新闻资讯详情</title>
+</head>
+
+<style>
+    html,
+    body,
+    div,
+    span,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    a,
+    em,
+    img,
+    b,
+    dl,
+    dt,
+    dd,
+    ol,
+    ul,
+    li,
+    footer,
+    header {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+        list-style: none;
+    }
+
+    html,
+    body {
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        max-width:750PX;/*no*/ 
+        margin:0 auto;
+    }
+
+    body::-webkit-scrollbar {
+        display: none;
+        /* Chrome Safari */
+    }
+    body img{max-width: 100%;}
+
+    .detail {
+        background-color: #fff;
+        padding: 20px;
+    }
+
+    .detail h2 {
+        font-size: 16px;
+        color: #333;
+        font-weight: bold;
+        line-height: 1.5;
+    }
+
+    .avatar {
+        margin-top: 22px;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .avatarImg {
+        width: 40px;
+        height: 40px;
+    }
+
+    .Nickname {
+        font-size: 14px;
+        color: #333;
+        line-height: 40px;
+        margin-left: 10px;
+    }
+
+    .dataTime {
+        font-size: 14px;
+        color: #333;
+        text-align: right;
+        flex: 1;
+        line-height: 40px;
+    }
+
+    .detailCon {
+        font-size: 14px;
+        color: #333;
+        line-height: 21px;
+        margin: 20px 0;
+    }
+
+    /* 楼盘列表 */
+    .houseRec ul li {
+        padding: 20px 0;
+        position: relative;
+    }
+
+    .houseRec ul li::after {
+        position: absolute;
+        box-sizing: border-box;
+        content: " ";
+        pointer-events: none;
+        top: -50%;
+        right: -50%;
+        bottom: -50%;
+        left: -50%;
+        border-bottom: 1px solid #ebedf0;
+        transform: scale(0.5);
+    }
+
+    .houseRec ul li:last-child::after {
+        content: none;
+    }
+
+    .list_item_warp {
+        display: flex;
+        width: 100%;
+    }
+
+    .img_warp {
+        /* width: 105px;*/
+        height: 85px;
+        width: 31.3%;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    .img_warp img {
+
+        width: 100%;
+        height: 100%;
+        display: block;
+
+    }
+
+    .item_details {
+        padding-left: 10px;
+        flex: 1;
+        width: 68.7%;
+    }
+
+    .details_title {
+        font-size: 16px;
+        line-height: 20px;
+        color: #333333;
+        font-weight: bold;
+    }
+
+    .label {
+        border-radius: 2px;
+        font-size: 10px;
+        color: #ffffff;
+        padding: 2px 2px;
+        height: 13px;
+        display: inline-block;
+        text-align: center;
+        line-height: 13px;
+        margin-left: 3px;
+    }
+
+    .cl_B {
+        background-color: #00a4ff;
+        margin-right: 4px;
+        margin-left: 5px;
+    }
+
+    .cl_Y {
+        background-color: #ff8353;
+    }
+
+    .forsale {
+        background-color: #3bd0a0;
+        color: #ffffff;
+    }
+
+    .onsale {
+        background-color: #ff8353;
+        color: #ffffff;
+    }
+
+    .saleout {
+        background-color: #c7cbd3;
+        color: #ffffff;
+    }
+
+    .inRent {
+        background-color: #f6b638;
+        color: #ffffff;
+    }
+
+    .price_details {
+        font-size: 16px;
+        color: #ff664f;
+        line-height: 15px;
+        padding: 8px 0 7px 0;
+    }
+
+    .price_unit {
+        font-size: 10px;
+        line-height: 15px;
+        margin-left: 2px;
+    }
+
+    .address_details {
+        font-size: 12px;
+        color: #666666;
+        line-height: 12px;
+        padding-bottom: 8px;
+    }
+
+    .classify {
+        font-size: 10px;
+        color: #999999;
+        overflow-y: hidden;
+        overflow-x: scroll;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .classify::-webkit-scrollbar {
+        display: none;
+    }
+
+    .classify p {
+        height: 100%;
+        width: 100%;
+    }
+
+    .classify span {
+        display: block;
+        float: left;
+        margin-right: 2px;
+        margin-bottom: 2px;
+        height: 15px;
+        line-height: 15px;
+        padding: 3px 4px;
+        background-color: #f1f9ff;
+        border-radius: 2px;
+        max-width: 100%;
+    }
+
+    .recommend_mess {
+        margin: 10px 0 0 0;
+        background-color: #fff9f3;
+        color: #ed9371;
+        font-size: 10px;
+        height: 18px;
+        line-height: 18px;
+        display: inline-block;
+        padding-right: 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        border-radius: 10px;
+        max-width: 90%;
+    }
+
+    .recommend_mess_img {
+        width: 14px;
+        height: 14px;
+        float: left;
+        margin: 2px 4px 0 2px;
+    }
+
+    .artCon img {
+        max-width: 100%;
+    }
+
+    .artCon table {
+        width: 100%;
+    }
+    .kg{
+        width: 100%;
+    overflow-x: auto;
+    }
+
+    .clamp {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+</style>
+<script src="https://hm.baidu.com/hm.js?4fad61221c5ec987b1c72cdf2819a289"></script>
+<body>
+    <div class="detailAll">
+        <div class="detail">
+            <!-- <h2 class="detailTit">总价219万起入住南桥地王盘——保利象屿公园悦府</h2>
+            <div class="avatar">
+                <img src="/img/mine.png" class="avatarImg" />
+                <span class="Nickname">好盘热荐</span>
+                <span class="dataTime">2020-05-16 06:38:41</span>
+            </div> -->
+            <h2 class="detailTit"></h2>
+            <div class="avatar">
+                <img src="" class="avatarImg" />
+                <span class="Nickname"></span>
+                <span class="dataTime"></span>
+            </div>
+            <div class="artCon"></div>
+            <div class="houseRec">
+                <ul class="houseUl">
+                    <!-- <li class="list_item">
+                        <div class="list_item_warp">
+                            <div class="img_warp">
+                                <img
+                                    src="http://test.shhxfyl.com/image/default/1F8C90EDE3C34B959F2367231B5BF866-6-2.png">
+                            </div>
+                            <div class="item_details">
+                                <p class="details_title"> 新长征花苑 <span class="label cl_B">住宅</span> <span
+                                        class="label cl_Y">售罄</span> </p>
+                                <p class="price_details">均价待定</p>
+                                <p class="address_details"> 黄浦区 <span>-</span> 人民西路 建面约 <span>10</span> span>-</span>
+                                    <span>120</span>㎡ </p>
+                                <div class="classify">
+                                    <p class="clearfloat">
+                                        <span>成熟商圈</span>
+                                        <span>成熟商圈</span>
+                                        <span>成熟商圈</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="recommend_mess">
+                            <img class="recommend_mess_img" src="/img/icon_advantage@2x.png" alt />
+                            真如城市福市，成熟商圈，优质美式社区
+                        </p>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</body>
+<script src="https://cdn.staticfile.org/jquery/1.8.1/jquery.min.js"></script>
+<script type="text/javascript" src="../house/js/tool.js"></script>
+<script type="text/javascript" src="../house/js/crypto-js.js"></script>
+<script type="text/javascript" src="../house/js/http.js"></script>
+
+
+
+<script>
+    function GetRequest() {
+        var url = location.search; //获取url中"?"符后的字串
+        var theRequest = new Object();
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1);
+            strs = str.split("&");
+            for (var i = 0; i < strs.length; i++) {
+                theRequest[strs[i].split("=")[0]] = decodeURIComponent(strs[i].split("=")[1]);
+            }
+        }
+        return theRequest;
+    }
+
+    var artId = GetRequest().id
+    var artIdType = GetRequest().type == 4 ? '2' : ''
+    var from = GetRequest().from
+
+    console.log("传参")
+    console.log(artId)
+    console.log(artIdType)
+
+    // var artId = location.search.replace(/\?/, '');
+
+
+    let api = {
+        infoDetails: '/search/v1/article/business/details', // 资讯详情 
+        hotBuilding: '/search/v1/article/business/popular/building', // 热门楼盘 
+        actOperate:'/base/preferential/act/index/operationConfigInfo' //活动运营位传过来的
+    }
+
+    var paramsArt = {
+        id: artId,
+        type: artIdType
+    }
+
+    function getInfoDetail() {
+
+        apiPost(api.infoDetails, paramsArt).then(function (data) {
+            console.log("我是data")
+            console.log(data)
+            if (data) {
+                if (artIdType == 2) {
+                    $("body").html(data.articleContent);
+                }else{
+                    $(".detailTit").text(data.articleTitle);
+                    data.articleImage = data.articleImage ? data.articleImage : '/img/mine.png'
+                    $(".avatarImg").attr('src', data.articleImage);
+                    $(".Nickname").text(data.authorName);
+                    $(".dataTime").text(data.firstPushTime);
+                    $(".artCon").html(data.articleContent);
+                    $('table').wrap("<div class='kg'></div>");
+                }
+
+            }
+
+        })
+    };
+
+    var paramsArt1 = {
+        operationConfigId: artId,
+    }
+    function getActOperate() {
+        console.log('我是活动11111111111111111111')
+        console.log(artId)
+        apiPost(api.actOperate, paramsArt1).then(function (data) {
+            console.log('我是活动222222222222222222222')
+            console.log("我是data")
+            console.log(data)
+            $("body").html(data.articleContent);
+
+        })
+    };
+
+    function getHot() {
+        var paramsHot = {
+            cityCode: getStorage('cityCode') || '310100000',
+            source: 6 //5:热门楼盘   6:本地热盘
+        }
+        apiPost(api.hotBuilding, paramsHot).then(function (data) {
+            console.log("我是热门楼盘data")
+            console.log(data)
+            var res = data.result;
+
+            res.forEach(item => {
+                var rePrice = "";
+                if (!item.referenceAveragePrice && !item.referenceAveragePriceMax) {
+                    rePrice = '均价待定'
+                } else {
+                    if (item.referenceAveragePrice && item.referenceAveragePriceMax) {
+                        rePrice = `${item.referenceAveragePrice}~${item.referenceAveragePriceMax}元/㎡`
+                    }
+                    if (item.referenceAveragePrice && !item.referenceAveragePriceMax) {
+                        rePrice = `${item.referenceAveragePrice}元/㎡`
+                    }
+                    if (!item.referenceAveragePrice && item.referenceAveragePriceMax) {
+                        rePrice = `${item.referenceAveragePriceMax}元/㎡`
+                    }
+                }
+
+                var addressDetails;
+                if (item.streetName) {
+                    addressDetails = `${item.areaName}-${item.streetName}`;
+                } else {
+                    addressDetails = item.areaName;
+                }
+
+                var area = "";
+                if (!item.referenceBuildAreaMin && !item.referenceBuildAreaMax) {
+                    area = '建面待定'
+                } else {
+                    if (item.referenceBuildAreaMin && item.referenceBuildAreaMax) {
+                        area = `建面约${item.referenceBuildAreaMin}~${item.referenceBuildAreaMax}㎡`
+                    }
+                    if (item.referenceBuildAreaMin && !item.referenceBuildAreaMax) {
+                        area = `建面约${item.referenceBuildAreaMin}㎡`
+                    }
+                    if (!item.referenceBuildAreaMin && item.referenceBuildAreaMax) {
+                        area = `建面约${item.referenceBuildAreaMax}㎡`
+                    }
+                }
+
+                var pro = "";
+                if (!item.propertyType.length) {
+                    pro = ''
+                } else {
+                    if (item.propertyType.indexOf(',') === -1) {
+                        pro = `<span class="label cl_B">${propertyType(item.propertyType)}</span>`
+                    } else {
+                        item.propertyType = item.propertyType.split(',')
+                        item.propertyType.forEach(val => {
+                            pro += `<span class="label cl_B">${propertyType(val)}</span>`;
+
+                            console.log("pro")
+                            console.log(pro)
+
+                        })
+                    }
+                }
+                var tap = "";
+                if (item.buildingTag) {
+                    item.buildingTag = item.buildingTag.split(',')
+                    item.buildingTag.forEach(val => {
+                        tap += `<span>${val}</span>`
+                    })
+                }
+                var htmlStr = `
+                    <li class="list_item" data-id="${item.buildingId}">
+                        <div class="list_item_warp">
+                            <div class="img_warp">
+                                <img src="${item.albumCoverPicture?item.albumCoverPicture:'/img/default.png'}">
+                            </div>
+                            <div class="item_details">
+                                <p class="details_title"> ${item.buildingAlias} ${pro} <span class="label ${salesStatus(item.salesStatus)[1]}">${salesStatus(item.salesStatus)[0]}</span> </p> 
+                                <p class="price_details">${rePrice}</p>
+                                <p class="address_details"> ${addressDetails} ${area} </p> 
+                                <div class="classify">
+                                    <p class="clearfloat">
+                                        ${tap}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="recommend_mess">
+                            <img class="recommend_mess_img" src="/img/icon_advantage@2x.png" alt />
+                            <span class="clamp">${item.buildingBrightSpot}</span>
+                        </p>
+                    </li>
+                `
+
+                $('.houseUl').append(htmlStr);
+
+            })
+            $(".list_item").click(function () {
+                var cid = $(this).attr("data-id");
+                console.log(cid)
+                if (app) {
+                    if (window.android != null) {
+                        window.android.goBuildingDetial(cid)
+                    } else {
+                        window.webkit.messageHandlers.goBuildingDetial.postMessage(cid);
+                    }
+                } else {
+                    window.location.href = window.location.protocol + "//" + window.location.host +
+                        "/dynamicPages/mstation/" + cid + ".html";
+                }
+            });
+        })
+    };
+
+    // 物业类型
+    function propertyType(types) {
+        switch (types) {
+            case '1':
+                return '住宅';
+                break;
+            case '2':
+                return '别墅';
+                break;
+            case '3':
+                return '商铺';
+                break;
+            case '4':
+                return '写字楼';
+                break;
+            case '5':
+                return '酒店式公寓';
+                break;
+            case '6':
+                return '车位';
+                break;
+            case '7':
+                return '动迁房';
+                break;
+            case '8':
+                return '其他';
+                break;
+            case '9':
+                return '洋房';
+                break;
+            case '10':
+                return '公寓';
+                break;
+            default:
+                break;
+        }
+    }
+    // 销售状态
+    function salesStatus(types) {
+        switch (types) {
+            case '1':
+                return ['待售', 'forsale'];
+                break;
+            case '2':
+                return ['在售', 'onsale'];
+                break;
+            case '3':
+                return ['售罄', 'saleout'];
+                break;
+            case '4':
+                return ['在租', 'inRent'];
+                break;
+            default:
+                break;
+        }
+    }
+    // getInfoDetail();
+    if(from){
+        getActOperate();
+    }else{
+        getInfoDetail();
+    }
+    getHot();
+
+
+
+    //判断是否App端
+    let app = '';
+    window['appPushToken'] = (userInfo) => {
+        app = true;
+    }
+
+
+    // $(function(){
+    //     console.log("bbbbbbbbbbbbbbbbb")
+    // })
+</script>
+
+</html>

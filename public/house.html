@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>楼盘详情</title>
+</head>
+<link rel="stylesheet" href="/house/css/house.css">
+<link rel="stylesheet" href="/icon/iconfont.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/Swiper/5.4.0/css/swiper.min.css">
+<script src="https://hm.baidu.com/hm.js?4fad61221c5ec987b1c72cdf2819a289"></script>
+<body>
+  <!-- 放楼盘id -->
+    <div class="app" buildingId="1048">
+        <div class="houseShare">
+            <!-- banner -->
+            <div class="houseShare_lunbo">
+             <div class="lunbo_img">
+                <div id="highlights_img" class="swiper-container highlightsBanner ">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img class="lunbo_img_current" src="/img/logo.png" alt="">
+                            <div class="lunbo_img_play"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <img class="lunbo_img_current" src="/img/logo.png" alt="">
+                            <div class="lunbo_img_play VR"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <img class="lunbo_img_current" src="/img/logo.png" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img class="lunbo_img_current" src="/img/detail_map@2x.png" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img class="lunbo_img_current" src=""  currentUrl="/img/diamond@2x.png" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                          <img class="lunbo_img_current" src=""  currentUrl="/img/detail_map@2x.png" alt="">
+                      </div>
+                      <div class="swiper-slide">
+                        <img class="lunbo_img_current" src="" currentUrl="/img/detail_map@2x.png" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                      <img class="lunbo_img_current" src="" currentUrl="/img/detail_map@2x.png" alt="">
+                  </div>
+                    </div>
+                </div>    
+                <div class="lunbo_img_playDiv">
+                    <div class="lunbo_img_change">
+                      <span class="lunbo_img_span spanColor mp4" num="1">视频</span>
+                      <span class="lunbo_img_span VR"  num="1">VR</span>
+                      <span class="lunbo_img_span img"  num="6">图片</span>
+                      <span class="lunbo_img_num">共<em class="img_num_c">1</em>/<em class="img_num_t">68</em>张</span>
+                   </div>
+                </div>
+               </div>
+               <div class="lunbo_price">
+                 <img class="lunbo_price_img" src="/img/basePrice@2x.png" alt="">
+                 <div class="lunbo_price_div">
+                   <span class="lunbo_price_mess">参考均价</span>
+                   <div class="ml3">
+                     <span class="lunbo_price_num">53980</span>
+                     <span><img class="lunbo_price_img2" src="/img/spuer@2x.png" alt=""></span>
+                   </div>
+                 </div>
+               </div>
+            </div>
+            <div class="houseShare_baseMess">
+              <div>
+                <div class="houseShare_baseMess_spanDiv clearfloat">
+                  <!-- 修改标签 -->
+                  <h1 class="houseShare_baseMess_span1">恒文星尚湾</h1>
+                  <span class="houseShare_baseMess_span2 fl">住宅</span>
+                  <span class="houseShare_baseMess_span2 fl houseShare_baseMess_span3">在售</span>
+                </div>
+                <div class="houseShare_baseMess_spanDiv1">
+                   <span class="spanList">生态宜居</span>
+                   <span class="spanList">三口之家</span>
+                   <span class="spanList">高层</span>
+                </div>
+                <div class="houseShare_baseMess_spanMess">
+                   <span >
+                     <img class="spanMessStar" src="/img/diamond@2x.png" alt="">
+                   </span>
+                   <span class="spanMessIntroduce">青浦北部板块，临近大虹桥商务区</span>
+                </div>
+                <div class="line"></div>
+              </div> 
+              <!-- <div class="houseShare_baseMess_live">
+                <img class="liveMess" src="../../assets/img/live@2x.png" alt="">
+              </div> -->
+              <div class="houseShare_baseMess_house">
+                <!-- 修改标签 -->
+                 <h3 class="houseSpan">参考总价:  约 338-475 万</h3>
+                 <h3 class="houseSpan1">在售户型:  2/3室</h3>
+                 <h3 class="houseSpan">建筑面积: 约 89-125 ㎡</h3>
+                 <h3 class="houseSpan1">开盘时间: 暂无</h3>
+              </div>
+              <!-- <div class="houseShare_baseMess_buttons">查看详情</div> -->
+              <div class="houseShare_baseMess_footer">
+                 <span>地址： 青浦区-华新  新凤中路899弄</span>
+                 <!-- 去掉a标签 alt加楼盘名字 填写经纬度-->
+                    <img class="footerImg" src="/img/detail_map@2x.png" alt="地图" lng="" lat="" onclick="urlPush('map')">
+               </div>
+            </div>
+            <div class="houseShare_alertmess">
+              <!-- <img class="alertmessImg" src="../../assets/img/alertMess@2x.png" alt=""> -->
+              <span>本楼盘信息更新于2019-12-9</span>
+            </div>
+            <!-- 优惠券 -->
+            <div class="coupon">
+              <div class="couponList">
+                  <!-- <div class="couponList_left"></div> -->
+                  <div class="couponList_mainLift">
+                     <span class="couponList_mainLift_span1">
+                         <em class="iconfont iconicon_currency"></em>
+                         <p class="couponList_mainLift_p">优惠券一行两行都居中最多十五个字555555555555555</p>
+                     </span>
+                     <span class="couponList_mainLift_span2">优惠劵描述我要送你一个大娃娃这里二十个字66666666666</span>
+                  </div>
+                  <div class="couponList_mainRight">
+                       <span class="couponList_mainRight_button"><i class="couponList_mainRight_mess">立即领取</i></span>
+                  </div>
+                </div>
+                <div class="couponList over">
+                    <div class="couponList_left"></div>
+                    <div class="couponList_mainLift">
+                       <span class="couponList_mainLift_span1">
+                        <em class="iconfont iconicon_currency"></em>
+                           <p class="couponList_mainLift_p">优惠券一行两行都居中最多十五个字555555555555555</p>
+                       </span>
+                       <span class="couponList_mainLift_span2">优惠劵描述我要送你一个大娃娃这里二十个字66666666666</span>
+                    </div>
+                    <div class="couponList_mainRight">
+                         <span class="couponList_mainRight_button"><i class="couponList_mainRight_mess">已领取</i></span>
+                    </div>
+                </div>
+
+            </div>
+               <!-- 楼盘介绍 -->
+               <div class="houseShare_introduce" v-if="introduce.length>0">
+                <div class="lin7 ml5 mb5">
+                    <span class="TLeft"></span>
+                    <!-- 替换标签 -->
+                    <h2 class="dynamic_title">简介</h2>
+                </div>
+                <div class="introduce_main">
+                    <img src="/img/logo.png" alt="" class="introduce_img"> 
+                    <p class="introduce_mess">
+                        保利云上Sky Garden，北虹桥中央居住区，建筑面积约83-126 ㎡装修公寓。<br/>项目位于嘉闵高架和地铁14号线交汇点，14号线/ 13号线/11号线/嘉闵线四轨交汇，毗邻2600亩虹桥之星，六大 文化中心。核心区域、出行便捷。保利云上Sky Gar线四轨交汇，毗邻2600亩虹桥之星，六大 文化中心。核心区域、出行便捷。保利云上Sky Gar线四轨交汇，毗邻2600亩虹桥之星，六大 文化中心。核心区域、出行便捷。保利云上Sky Gar
+                    </p>
+                    <p class="introduce_more">全文</p>
+                </div>
+             </div>
+               <!-- 动态 -->
+            <div class="houseShare_dynamic">
+                <div class="lin7">
+                    <span class="TLeft"></span>
+                    <!-- 修改标签 -->
+                    <h2 class="dynamic_title">楼盘动态</h2>
+                    <!--去掉a标签 -->
+                      <span class="houseStyleTR" onclick="urlPush('dynamic')">更多<em class="iconfont iconarrow_more"></em></span>
+                </div>
+                <div class="houseShare_dynamic_active">
+                   <div class="dynamic_actives">
+                       <div class="dynamic_actives_divs">
+                          <span class="dynamic_actives_line "></span>
+                          <span class="dynamic_actives_img">
+                            <em class="iconfont iconicon_preSale"></em>
+                          </span>
+                          
+                       </div>
+                       <div class="dynamic_actives_title">预售证</div>
+                       <div class="dynamic_actives_name">2016-09-30</div>
+                   </div>
+                   <div class="dynamic_actives">
+                    <div class="dynamic_actives_divs">
+                       <span class="dynamic_actives_line "></span>
+                       <span class="dynamic_actives_img">
+                         <em class="iconfont iconicon_pledge"></em>
+                       </span>
+                       
+                    </div>
+                    <div class="dynamic_actives_title">认筹</div>
+                    <div class="dynamic_actives_name">2018-11-30</div>
+                </div>
+                <div class="dynamic_actives">
+                    <div class="dynamic_actives_divs">
+                       <span class="dynamic_actives_line "></span>
+                       <span class="dynamic_actives_img">
+                         <em class="iconfont iconicon_opening"></em>
+                       </span>
+                       
+                    </div>
+                    <div class="dynamic_actives_title">开盘</div>
+                    <div class="dynamic_actives_name">2019-09-30</div>
+                </div>
+                <div class="dynamic_actives colorH">
+                    <div class="dynamic_actives_divs">
+                       <span class="dynamic_actives_line "></span>
+                       <span class="dynamic_actives_img">
+                         <em class="iconfont iconicon_preSale"></em>
+                       </span>
+                       
+                    </div>
+                    <div class="dynamic_actives_title">预售证</div>
+                    <div class="dynamic_actives_name">2020-09-30</div>
+                </div>
+                <div class="dynamic_actives colorH">
+                    <div class="dynamic_actives_divs">
+                       <span class="dynamic_actives_img">
+                         <em class="iconfont iconicon_pledge"></em>
+                       </span>
+                       
+                    </div>
+                    <div class="dynamic_actives_title">认筹</div>
+                    <div class="dynamic_actives_name">2020-11-30</div>
+                </div>
+                </div>
+
+                <div class="houseShare_dynamic_timeing">
+                    <div  class="clearfloat">
+                        <div class="leftTimes">
+                          <span class="leftTimes_title"></span>
+                          <span class="leftTimes_line"></span>
+                        </div>
+                        <div>
+                           <div class="right_time">2020-04-30 10:38:26</div>
+                           <div class="right_title">湖山香颂湾均价为：31000元/平方米</div>
+                           <div class="right_message">湖山香颂湾31000元/平方米。湖山香颂湾位于：龙轩路869弄。毛坯交付。绿化率35%。容积率1.72。
+                            湖山香颂湾物业费：湖山香颂湾物业费为1.98元/平方米·月。项目规划建设1362户。项目为小高层,高层板楼。项目共11栋楼,小区由10层小高层和18层高层住宅组成。敬请关注。</div>
+                        </div>
+                    </div>
+                    <div  class="clearfloat">
+                        <div class="leftTimes">
+                          <span class="leftTimes_title"></span>
+                          <span class="leftTimes_line"></span>
+                        </div>
+                        <div>
+                           <div class="right_time">2020-04-30 10:38:26</div>
+                           <div class="right_title">湖山香颂湾均价为：31000元/平方米</div>
+                           <div class="right_message">湖山香颂湾31000元/平方米。湖山香颂湾位于：龙轩路869弄。毛坯交付。绿化率35%。容积率1.72。
+                            湖山香颂湾物业费：湖山香颂湾物业费为1.98元/平方米·月。项目规划建设1362户。项目为小高层,高层板楼。项目共11栋楼,小区由10层小高层和18层高层住宅组成。敬请关注。</div>
+                        </div>
+                    </div>
+                    <div  class="clearfloat">
+                        <div class="leftTimes">
+                          <span class="leftTimes_title"></span>
+                          <span class="leftTimes_line"></span>
+                        </div>
+                        <div>
+                           <div class="right_time">2020-04-30 10:38:26</div>
+                           <div class="right_title">湖山香颂湾均价为：31000元/平方米</div>
+                           <div class="right_message">湖山香颂湾31000元/平方米。湖山香颂湾位于：龙轩路869弄。毛坯交付。绿化率35%。容积率1.72。
+                            湖山香颂湾物业费：湖山香颂湾物业费为1.98元/平方米·月。项目规划建设1362户。项目为小高层,高层板楼。项目共11栋楼,小区由10层小高层和18层高层住宅组成。敬请关注。</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="p3">
+                   <div class="houseShare_baseMess_buttons houseStyleButton">更多动态</div>
+                </div> -->
+             </div>
+            <!-- 户型  img标签  上面跟楼盘名字+户型介绍-->
+            <div class="houseShare_houseStyle">
+               <div class="lin7">
+                   <span class="TLeft"></span>
+                   <h2 class="houseStyleTMess">户型(<span>6</span>)</h2>
+                     <span class="houseStyleTR" onclick="urlPush('houseStyle')">全部<em class="iconfont iconarrow_more"></em></span>
+               </div>
+               <div  style="overflow-y: auto;white-space: nowrap;">
+                 <span class="houseStyles baseColor" >三室(2)</span>
+                 <span class="houseStyles " >四室(2)</span>
+                 <span class="houseStyles " >五室(2)</span>
+                 <span class="houseStyles " >五室以上(6)</span>
+               </div>
+               <!-- 列表 -->
+               <div class="houseStyleMess">
+                  <div  class="houseStyleMess_all">
+                    <!-- 修改  加上户型id -->
+                    <div class="houseStyleMess_imgDiv" currentId="555">
+                        <img class="houseStyleMess_img" src="/img/timgHouse@2x.png" alt="">
+                        <div class="houseStyleMess_imgDivBottom">A户型 景璨</div>
+                    </div>
+                    <div>
+                      <span class="houseStyleMess_style">2室2厅1厨1卫</span>
+                      <span class="houseStyleMess_spans">在售</span>
+                    </div>
+                    <div class="houseStyleMess_area">
+                      <span>建筑面积{87㎡</span>
+                      <span>正南</span>
+                    </div>
+                    <div class="houseStyleMess_price" v-if="item.totalPrice">约270万</div>
+                  </div>
+                  <div  class="houseStyleMess_all">
+                    <div class="houseStyleMess_imgDiv" currentId="666">
+                        <img class="houseStyleMess_img" src="/img/timgHouse@2x.png" alt="" >
+                        <div class="houseStyleMess_imgDivBottom">A户型 景璨</div>
+                    </div>
+                    <div>
+                      <span class="houseStyleMess_style">2室2厅1厨1卫</span>
+                      <span class="houseStyleMess_spans">在售</span>
+                    </div>
+                    <div class="houseStyleMess_area">
+                      <span>建筑面积{87㎡</span>
+                      <span>正南</span>
+                    </div>
+                    <div class="houseStyleMess_price" v-if="item.totalPrice">约270万</div>
+                  </div>
+               </div>
+               <div class="houseStyleMess"  style="display:none" >
+                <div  class="houseStyleMess_all">
+                  <div class="houseStyleMess_imgDiv">
+                      <img class="houseStyleMess_img" src="/img/timgHouse@2x.png" alt="">
+                      <div class="houseStyleMess_imgDivBottom">A户型 景璨</div>
+                  </div>
+                  <div>
+                    <span class="houseStyleMess_style">2室2厅1厨1卫</span>
+                    <span class="houseStyleMess_spans">在售</span>
+                  </div>
+                  <div class="houseStyleMess_area">
+                    <span>建筑面积{87㎡</span>
+                    <span>正南</span>
+                  </div>
+                  <div class="houseStyleMess_price" v-if="item.totalPrice">约270万</div>
+                </div>
+                
+                </div> 
+                <div class="houseStyleMess"  style="display:none">
+                    <div  class="houseStyleMess_all">
+                      <div class="houseStyleMess_imgDiv">
+                          <img class="houseStyleMess_img" src="/img/timgHouse@2x.png" alt="">
+                          <div class="houseStyleMess_imgDivBottom">A户型 景璨</div>
+                      </div>
+                      <div>
+                        <span class="houseStyleMess_style">2室2厅1厨1卫</span>
+                        <span class="houseStyleMess_spans">在售</span>
+                      </div>
+                      <div class="houseStyleMess_area">
+                        <span>建筑面积{87㎡</span>
+                        <span>正南</span>
+                      </div>
+                      <div class="houseStyleMess_price" v-if="item.totalPrice">约270万</div>
+                    </div>
+                    <div  class="houseStyleMess_all">
+                      <div class="houseStyleMess_imgDiv">
+                          <img class="houseStyleMess_img" src="/img/timgHouse@2x.png" alt="">
+                          <div class="houseStyleMess_imgDivBottom">A户型 景璨</div>
+                      </div>
+                      <div>
+                        <span class="houseStyleMess_style">2室2厅1厨1卫</span>
+                        <span class="houseStyleMess_spans">在售</span>
+                      </div>
+                      <div class="houseStyleMess_area">
+                        <span>建筑面积{87㎡</span>
+                        <span>正南</span>
+                      </div>
+                      <div class="houseStyleMess_price" v-if="item.totalPrice">约270万</div>
+                    </div>
+                </div> 
+                <div class="houseStyleMess"  style="display:none">
+                    <div  class="houseStyleMess_all">
+                      <div class="houseStyleMess_imgDiv">
+                          <img class="houseStyleMess_img" src="/img/timgHouse@2x.png" alt="">
+                          <div class="houseStyleMess_imgDivBottom">A户型 景璨</div>
+                      </div>
+                      <div>
+                        <span class="houseStyleMess_style">2室2厅1厨1卫</span>
+                        <span class="houseStyleMess_spans">在售</span>
+                      </div>
+                      <div class="houseStyleMess_area">
+                        <span>建筑面积{87㎡</span>
+                        <span>正南</span>
+                      </div>
+                      <div class="houseStyleMess_price" v-if="item.totalPrice">约270万</div>
+                    </div>
+                 </div>
+               <!-- <div class="houseShare_baseMess_buttons houseStyleButton">一房一价</div> -->
+            </div>
+           <!-- 楼栋分布 -->
+            <div class="houseShare_spread" >
+              <div class="lin7">
+                   <span class="TLeft"></span>
+                   <!-- 修改标签 -->
+                   <h2 class="dynamic_title">楼栋分布</h2>
+               </div>
+               <div class="spread_main">
+                  <div class="spread_main_all">
+                    <img class="spread_main_img"  src="/img/logo.png" alt="">
+                    <div class="allpoints"></div>
+                  </div>
+                  <div class="spread_main_divs" v-if="houseSpread.unitName">
+                      <div>
+                         <div>楼栋</div>
+                         <span class="divsSpan">95栋</span>
+                         <span class="houseStyleMess_spans">在售</span>
+                      </div>
+                      <!-- 修改了 -->
+                      <div class="tac f2 unit">
+                        <div >单元数</div>
+                         <span class="divsSpan">6个单元</span>
+                      </div>
+                      <!-- 修改了 -->
+                      <div class="tac f2 ce">
+                        <div>层数</div>
+                       <span class="divsSpan">38</span>
+                     </div>
+                     <!-- 修改了 -->
+                      <div class="tar r14 hu">
+                          <div>户数</div>
+                         <span class="divsSpan">369户</span>
+                       </div>
+                  </div>
+                </div>
+            </div>
+            <!-- 周边配套 全部 -->
+            <div class="houseShare_periphery" id="zhoubian">
+              <div class="lin7">
+                   <span class="TLeft"></span>
+                   <h2 class="dynamic_title">周边配套</h2>
+               </div>
+               <div class="spread_main"></div>
+            </div>
+            <!-- 好房问答 -->
+            <div class="houseShare_questions">
+              <div class="lin7">
+                   <span class="TLeft"></span>
+                   <!-- 替换标签 -->
+                   <h2 class="houseStyleTMess">好房问答</h2>
+               </div>
+               <!-- 最多三个 -->
+               <div v-for="(item,i) in questions" :key="i" class="questions">
+                  <div>
+                    <span class="questions_ask">问</span>
+                    <span class="questions_askMess">听说送飘窗？</span>
+                  </div>
+                  <div>
+                    <span class="questions_ask">问</span>
+                    <span class="questions_askMess">听说附近正在盖新的，盖好了两个摇号</span>
+                  </div>
+                  <div>
+                    <span class="questions_ask">问</span>
+                    <span class="questions_askMess">是不是对口上外附小？</span>
+                  </div>
+                  <!-- <div class="questions_divs">
+                    <span  class="questions_answer">答</span>
+                    <span class="questions_answerMess">{{item.answerDesc}}</span>
+                  </div> -->
+               </div>
+               <!-- 修改了 -->
+               <!-- <a href="https://tcstag.tospur.com/download/client/tchf_download_app.html?hmsr=&hmpl="> -->
+                   <div class="houseShare_baseMess_buttons houseStyleButton">去同策好房app，查看更多回答</div>
+              <!-- </a> -->
+               
+            </div>
+            <!-- 优秀管家 全部-->
+            <div class="houseShare_housekeeper">
+               <div class="lin7 ml5">
+                   <span class="TLeft"></span>
+                   <h2 class="dynamic_title disLB">优秀管家</h2>
+                   <!-- 链接加id -->
+                     <span class="houseStyleTR" onclick="urlPush('housekeeper')">更多<em class="iconfont iconarrow_more"></em></span>
+                   <br/>
+                   <span class="housekeeper_title">
+                     <em class="iconfont iconlive_tick"></em>
+                      <span class="housekeeper_title_mess">专业服务</span>
+                   </span>
+                   <span class="housekeeper_title">
+                      <em class="iconfont iconlive_tick"></em>
+                      <span class="housekeeper_title_mess">免费咨询</span>
+                    </span>
+                    <span class="housekeeper_title">
+                       <em class="iconfont iconlive_tick"></em>
+                       <span class="housekeeper_title_mess">政策解读</span>
+                    </span>
+                </div>
+                <div class="housekeeper_divsList"></div>
+             </div>
+            <!-- 热门推荐 全部-->
+            <div class="houseShare_recommend">
+               <div class="lin7 mb5">
+                   <span class="TLeft"></span>
+                   <h2 class="dynamic_title">热门推荐</h2>
+               </div>
+               <div class="listForList"></div>
+            </div>
+            <!-- 免责声明 -->
+            <div class="houseShare_declare">
+                <div class="houseShare_declare_imgs">
+                    <em class="houseShare_declare_currentImg iconfont iconexemption_details"></em>
+                </div>
+                <div class="houseShare_declare_msgs">
+                   <div class="msgs_title">
+                     免责声明
+                   </div>
+                   <span class="msgs_main">
+                     楼盘信息来源于政府公示网站、开发商、第三方公众平台，最终以政府部 门登记备案为准，请谨慎核查。
+                   </span>
+                </div>
+            </div>
+            <!-- footer -->
+            <footer>
+                <div class="footerMain">
+                      <div class="houseTag">
+                        <span class="footerActive houseTag_span">新房</span>
+                        <span class="houseTag_span"><em></em>区域楼盘</span>
+                        <span class="houseTag_span"><em></em>楼盘推荐</span>
+                        <span class="houseTag_span"><em></em>新开楼盘</span>
+                      </div>
+                      <div class="houseLinks">
+                          <a href="" class="houseLink">上海新房</a>
+                      </div>
+                </div>
+                <div class="footerUrl">    
+                      <div class="basicAddress">同策房产咨询股份有限公司  </div>
+                      <div class="basicAddress">电话:400 851 0888  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 地址:上海市松江区柳港镇兴乐路51号</div>
+                       <div><a href="http://www.beian.miit.gov.cn/" target="_blank" style="color: #999;">沪ICP备11022085号-9</a> &nbsp;&nbsp;泸公网安备 31010702006007号</div>
+                    </div>
+                  </div>  
+            </footer>
+         </div>
+         <div class="houseShare_footer">
+            <div class="houseShare_footer_star">
+                <em class="iconfont iconfavorite_line"></em>
+            </div>
+            <!-- 修改 -->
+            <a href="javascript:;" class="footer_phone">
+              <div class="houseShare_footer_online footerButton">
+                     <span>咨询售楼部</span><br/>
+                     <span>保护你的真实号码</span>
+               </div>
+             </a>
+            <div class="houseShare_footer_telphone footerButton">我要咨询</div>
+        </div>
+        <!-- 优惠券浮窗 -->
+        <div class="cellQuan"></div>
+        <!-- 我要咨询 -->
+        <div class="modelSearch">
+             <div class="modelMain">
+               <div class="modelMain_header">我要咨询</div>
+               <div class="modelMain_content">
+                    <div class="content_error">错误 请核对</div>
+                     <input type="text" class="content_name name" placeholder="请输入姓名" onfocus="modelHide()">
+                      <input type="text" class="content_name phone" placeholder="请输入手机号码" onfocus="modelHide()">
+               </div>
+               <div class="modelMain_footer">
+                   <div class="model_footer_button cancel">取消</div>
+                   <div class="model_footer_button sure">确定</div>
+               </div>
+             </div>
+        </div>
+        <!-- 锚点框 -->
+        <div class="mao">
+             <span class="maoList active" currentName="houseShare_introduce">简介</span>
+             <span class="maoList" currentName="houseShare_dynamic">动态</span>
+             <span class="maoList" currentName="houseShare_houseStyle">户型</span>
+             <span class="maoList" currentName="houseShare_spread">楼栋</span>
+             <span class="maoList" currentName="houseShare_periphery">周边</span>
+             <span class="maoList" currentName="houseShare_questions">问答</span>
+             <span class="maoList" currentName="houseShare_housekeeper">管家</span>
+             <span class="maoList" currentName="houseShare_recommend">推荐</span>
+        </div>
+      </div>
+</body>
+<script src="https://cdn.staticfile.org/jquery/1.8.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/Swiper/5.4.0/js/swiper.min.js"></script>
+<script type="text/javascript" src="/house/js/tool.js"></script>
+<script type="text/javascript" src="/house/js/crypto-js.js"></script>
+<script type="text/javascript" src="/house/js/http.js"></script>
+<script src="/house/js/house.js"></script>
+</html>

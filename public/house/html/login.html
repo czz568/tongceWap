@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+        <style>
+            .loginModal {
+                position: fixed;
+                width: 750px;
+                height: 100%;
+                top:0;
+                left:0;
+                right: 0;
+                bottom: 0;
+                background:rgba(0,0,0,0.6);
+                z-index: 99999;
+                margin: auto;
+            }
+            .loginMain {
+                position: fixed;
+                width: 420px;
+                height: 422px;
+                left:50%;
+                top:50%;
+                margin-left:-210px;
+                margin-top:-210px;
+                box-sizing: border-box;
+                background: white;
+                border-radius:6px;
+                padding:20px;
+            }
+            .loginClose {
+                display: inline-block;
+                float: right;
+                width: 18px;
+                height: 18px;
+                cursor: pointer;
+                background-position: -137px -236px;
+            }
+            .loginUser {
+                text-align: center;
+                font-size: 20px;
+                margin:15px 0 10px 0;
+                color: #222222;
+                font-weight: 700;
+            }
+            .loginTip {
+                font-size:12px;
+                color: #888888;
+                text-align: center;
+            }
+            .loginError {
+                width: 100%;
+                height:14px;
+                font-weight: 700;
+                font-size:12px;
+                color:rgba(255,97,96,1);
+                line-height:14px;
+                text-align: center;
+                margin:10px 0;
+            }
+            .loginContent {
+                padding:0 20px 20px 20px;
+            }
+            .loginContent input {
+                display: block;
+                box-sizing: border-box;
+                width:340px;
+                height:40px;
+                padding-left:20px;
+                background:rgba(246,247,252,1);
+                border-radius:21px;
+                margin-bottom: 10px;
+            }
+            .userImg,.userCode {
+                position: relative;
+            }
+            .userImg>img ,.userCode>p {
+                position: absolute;
+                width: 88px;
+                height: 30px;
+                cursor: pointer;
+                top:5px;
+                border-radius:16px;
+                right: 5px;
+            }
+            .userCode .codeGet.darkCode{
+               background-color: #E7E9F3;
+               color: #BDC1CE;
+            }
+            .userCode>p {
+                width: 112px;
+                color: white;
+                background: #5CC4FF;
+                font-size: 14px;
+                text-align: center;
+                line-height: 30px;
+            }
+            .userCode>.codeSending {
+                display: none;
+                background:rgba(231,233,243,1);
+                pointer-events: none;
+                opacity: 1;
+                color: #BDC1CE;
+            }
+            .userAgree {
+                margin:16px auto 40px auto;
+                text-align: center;
+            }
+            .userAgree>.spiritnew {
+                display: inline-block;
+                box-sizing: border-box;
+                width: 10px;
+                height: 10px;
+                cursor: pointer;
+            }
+            .userAgree>.active {
+                background-position: -176px -193px;
+            }
+            .userAgree>.unactive {
+                border:1px solid #7D7D7D;
+                background-position: -95px -195px;
+            }
+            .userLogin>a {
+                display: block;
+                margin:0 auto;
+                width:200px;
+                height:40px;
+                border-radius:20px;
+                text-align: center;
+                line-height: 40px;
+                color: white;
+            }
+            .userLogin>.active {
+                background:linear-gradient(90deg,rgba(87,210,255,1) 0%,rgba(0,164,255,1) 100%);
+                cursor: pointer;
+            }
+            .userLogin>.unactive {
+                pointer-events: none;
+                opacity: 1;
+                background:rgba(231,233,243,1);
+                color: #BDC1CE;
+            }
+			.spiritnew {
+				background-image: url('/static/img/spirit.png') !important;
+            }
+            /* 新加的临时询问框  2020/4/10*/
+            .loginModal .justPhone{
+                width:420px;
+                height:305px;
+                background:rgba(255,255,255,1);
+                border-radius:6px;
+                padding: 40px;
+                box-sizing: border-box;
+                position: relative;
+            }
+           .justPhone_divs{
+               height: 60px;
+               margin-bottom: 30px;
+           }
+           .loginModal .loginClose{
+                position: absolute;
+                right: 20px;
+                top: 24px;
+           }
+           .loginModal .justPhone_img{
+              height: 60px;
+              width: 60px;
+              border-radius: 50%;
+              float: left;
+              margin-right: 12px;
+           }
+           .justPhone_h3{
+               font-size: 16px;
+               color: #222;
+               font-weight: 700;
+               line-height: 16px;
+               margin: 8px 6px 14px 0;
+           }
+          .disL{
+              display: inline-block;
+          }
+          .justPhone_img_star{
+            width: 8px;
+            height: 8px;
+            line-height: 14px;
+            display: inline-block;
+            float: left;
+            margin-right: 5px;
+            margin-top: 9px;
+          }
+          .justPhone_span{
+            background: rgba(243,244,251,1);
+            border-radius: 3px;
+            display: inline-block;
+            padding: 4px 6px 3px;
+            font-size: 12px;
+            text-align: center;
+            color: #989DA8;
+            line-height: 12px;
+            box-sizing: border-box;
+            margin-right: 5px;
+          }
+          .justPhone_star_num{
+            font-size: 10px;
+            color: #888;
+            float: left;
+            margin-right: 5px;
+            margin-top: 4px;
+          }
+          .justPhone_phone{
+            height: 40px;
+            background: rgba(246,247,252,1);
+            border-radius: 21px;
+            width: 100%;
+            padding-left: 20px;
+            box-sizing: border-box;
+          }
+          .justPhone_button{
+               width: 165px;
+               height: 40px;
+               border-radius: 20px;
+               border: 1px solid rgba(255,255,255,0.3);
+               color: white;
+               font-size: 16px;
+               line-height: 40px;
+               text-align: center;
+               cursor: pointer;
+          }
+          .justPhone_button_divs{
+            margin-top: 16px;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+          }
+          .justPhone_button_houer{
+             background: linear-gradient(90deg,rgba(87,210,255,1) 0%,rgba(0,164,255,1) 100%);
+          }
+          .justPhone_button_login{
+            background:linear-gradient(90deg,rgba(255,147,96,1) 0%,rgba(255,97,96,1) 100%);
+          }
+          .justPhone_button_alert{
+              text-align: right;
+              color: #888;
+              font-size: 12px;
+              margin-top: 15px;
+              margin-right: 28px;
+          }
+          .error_alert{
+            margin-top: 6px;
+          }
+          .noLogin{
+               pointer-events: none;
+                opacity: 1;
+                background:rgba(231,233,243,1);
+                color: #BDC1CE;
+          }
+          .userAgree .iconcheckbox_selected{
+            color: #00A4FF;
+            font-size: 10px;
+            background-image: none!important;
+            vertical-align: middle;
+            display: inline-block;
+            margin-right: 5px;
+          }
+          .userAgree > span {
+            display: inline-block;
+            vertical-align: middle;
+          }
+          .userAgree .iconcheckbox_selected.unactive{
+              color:#BFC3CF;
+              background-image: none!important;
+              border: 0;
+          }
+          input{  
+	        background:none;  
+	        outline:none;  
+	        border:none;
+         }
+        </style>
+    </head>
+    <script src="https://hm.baidu.com/hm.js?4fad61221c5ec987b1c72cdf2819a289"></script>
+	<body>
+        <div class="loginModal" >
+            <div class="loginMain normal">
+                <a class="loginClose iconfont iconbtn_close"></a>
+                <p class="loginUser">用户登录</p>
+                <p class="loginTip">别担心，无账号自动注册不会导致手机号泄露</p>
+                <p class="loginError"></p>
+                <div class="loginContent">
+                    <input id="userTelephone" placeholder="请输入手机号" />
+                    <div class="userImg">
+                        <input id="userImg" class="m_10 mb_10" placeholder="请输入图片验证码" />
+                        <img src="" >
+                    </div>
+                    <div class="userCode">
+                        <input id="userCode" placeholder="请输入手机验证码" />
+                        <p class="codeGet darkCode">获取验证码</p>
+                        <p class="codeSending"><span></span></p>
+                    </div>
+                    <div class="userAgree">
+                        <a class="iconfont iconcheckbox_selected active spiritnew"></a>
+                        <span>同意
+                            <a target="_blank" href="https://tongcehaofang.com/pages/otherpart/serVice.html" style="color:#20C9FF">《同策好房用户服务协议及隐私政策》</a>
+                        </span>
+                    </div>
+                    <!-- class="unactive" -->
+                    <div class="userLogin">
+                        <a class="unactive">登录</a>
+                    </div>
+                </div>
+            </div>
+       </div>
+	</body>
+    <script type="text/javascript" src="/house/js/crypto-js.js"></script>
+    <script type="text/javascript" src="/house/js/http.js"></script>
+    <script type="text/javascript">
+    
+        let user_id = ''
+        //获取url  参数
+        function getQueryString(name) { 
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
+        var r = window.location.search.substr(1).match(reg); 
+        if (r != null) return unescape(r[2]); 
+        return null; 
+       } 
+       (function($){
+        $.fn.goEvents = function(obj){
+            for(var eName in obj)
+            for(var selector in obj[eName])
+            $(this).on(eName, selector, obj[eName][selector]);
+        }
+       })(jQuery);
+        $(function(){
+            var loginParams={
+                phone:"",
+                imgCode:"",
+                phoneCode:"",
+                uuid:"",
+            };
+
+            var sendMessage=protocol=true,phoneTrue = ifsendMessage= phoneCode =false,hour_phone = false;
+            var ifawaitImg = true; var ifawaitPhone = true;
+            
+            // 手机号赋值
+            var loginSource = getSession('sourcePhone');
+            if(loginSource && loginSource!=''){
+                $("#userTelephone").val(loginSource);
+            }
+            // 获取验证码
+            function imgCode() {
+                // 验证码未走加密接口
+                $.ajax({
+                  type: 'POST',
+                  url: window.globalConstant.baseUrl+"/user/imagecode",
+                  contentType: 'application/json',
+                  dataType: 'json',
+                  timeout: 30000,
+                  crossDomain: true,
+                  xhrFields: {
+                      withCredentials: true //支持跨域
+                  },
+                  success: function(res) {
+                      $(".userImg img").attr('src',res.data.Image);
+                      loginParams.uuid=res.data.uuid;
+                  },
+                  error:function (data) {
+
+                  }
+                });
+            }
+            imgCode();
+            //校验验证码
+            function checkCode(){
+                if(!ifawaitImg)return;
+                ifawaitImg = false;
+                return new Promise((resove,reject)=>{
+                    let params = {
+                        imgCode:$("#userImg").val().trim(),
+                        uuid: loginParams.uuid,
+                        phone: $("#userTelephone").val().trim()
+                    }
+                    countdown()
+                    apiPost('/tospurWeb/pclogin/pcMessage',params).then(function(res) {
+                        ifawaitImg = true;
+                        $(".loginError").html("");
+                        resove()
+                    },err=>{
+                        ifawaitImg = true;
+                        $(".codeSending").hide();
+                        $(".codeGet").show().addClass("darkCode").html("获取验证码");
+                        $(".loginError").html(err);
+                        imgCode();
+                        $("#userImg").val("")
+                    })
+                })
+            }
+            //改变用户协议状态
+            function checkStatue(type){
+                $(type).hasClass('active') ? ($(type).removeClass('active').addClass('unactive'),protocol=false,checkLoginStatus()) :
+                ($(type).removeClass('unactive').addClass('active'),protocol=true,checkLoginStatus());
+                  
+            }
+            //改变登录按钮的状态
+            function checkLoginStatus(type){
+                if(protocol && phoneTrue && ifsendMessage && phoneCode)$(".userLogin>a").removeClass('unactive').addClass('active')
+                else $(".userLogin>a").removeClass('active').addClass('unactive')
+            }
+            //判断获取验证码的状态
+            function getCodeStatus(){
+                phoneTrue = isPhone($("#userTelephone").val())
+                if($("#userImg").val().length == 4 && phoneTrue)return $(".codeGet").removeClass("darkCode")
+                 $(".codeGet").addClass("darkCode")
+            }
+            //手机号判断
+            function checkPhone(dom){
+                if(!isPhone($(dom).val())){ 
+                    if(dom == ".justPhone_phone"){
+                        hour_phone = false; 
+                         $(".justPhone_button").addClass("noLogin")
+                        return $(".error_alert").html("请输入有效的手机号码");
+                    }
+                    $(".loginError").html("请输入有效的手机号码");
+                    phoneTrue = false;
+                    getCodeStatus()
+                    checkLoginStatus()
+                    return;
+                 }
+                 if(dom == ".justPhone_phone"){
+                    hour_phone = true;   
+                    $(".justPhone_button").removeClass("noLogin")
+                     return $(".error_alert").html("");
+                 }
+                 phoneTrue = true
+                 $(".loginError").html("");
+                 
+                 getCodeStatus();
+                 checkLoginStatus()
+            }
+
+            //手机号验证
+            function isPhone(tel) {
+                var regx = /^1[34578]\d{9}$/;
+                return regx.test(tel);
+            }
+            function countdown(numbers) {
+                if(!numbers){
+                    $(".codeGet").hide();
+                    $(".codeSending").show();
+                    $(".codeSending").html("请稍后...")
+                    return;
+                }
+                var timer = null;
+                var currentimes = numbers;
+                $(".codeSending").html(numbers+"s后重新发送")
+                timer = setInterval(function() {
+                    if (currentimes >1) {
+                        currentimes--;
+                        $(".codeSending").html(currentimes+"s后重新发送");
+                    } else {
+                        clearTimeout(timer);
+                        $(".codeSending").hide();
+                        $(".codeGet").html("重新发送验证码").show()
+                        this.getCodeStatus()
+                    }
+                }, 1000)
+            }
+            //报错
+            if(!window.loadforLogin){
+                $(document).goEvents({
+                click : {
+                    // 用户协议
+                    ".userAgree .spiritnew"(){
+                        checkStatue(this)
+                    },
+                    // 关闭login框
+                    ".loginClose" : function(){
+                        $(".loginModal").remove();
+                    },
+                    // 图片验证码
+                    ".userImg img" : function(){
+                        imgCode();
+                    },
+                    // 验证码倒计时
+                    ".codeGet" : function(e){
+                        if($(".codeGet").hasClass("darkCode"))return;
+                        checkCode().then(function(){
+                                ifsendMessage=true
+                                countdown(60)
+                        })
+                        if (e && e.stopPropagation) {e.stopPropagation();}
+                        else {window.event.cancelBubble = true;return false;}
+                    },
+                    // 登录
+                    ".userLogin>a" : function(){
+                        var loginSource = getSession('sourcePhone');
+                        var actListId = getSession('actListId');
+                        // 校验完成操作
+                        if(!ifawaitPhone)return;
+                        ifawaitPhone = false;
+                        loginParams.phone=$("#userTelephone").val();
+                        loginParams.phoneCode=$("#userCode").val().trim();
+                        console.log('数据··········',loginSource);
+                        if(loginSource && loginSource!='' && actListId && actListId!=''){
+                           
+                        }
+                        apiPost('/tospurWeb/pclogin/pcLogin',loginParams).then(function(res) {
+                            ifawaitPhone = true;
+                            window.localStorage.removeItem('currentRule');
+                            setStorage({
+                                pcToken:res.token,
+                                PCcustomerId:res.customerId,
+                                pcUsername:res.username,
+                                pcHeadImageUrl:res.headImageUrl,
+                                pcryToken:JSON.stringify(res.ryToken)
+                            });
+                            // 来源于首页活动领取
+                            if(loginSource && actListId) {
+                                var url = '/base/act/gain/byNewCustomer';
+                                var params = {
+                                    phone:loginSource,
+                                    actListId:actListId,
+                                    type:"0",
+                                    source:'1'
+                                }
+                                console.log(params);
+                                getCoupon(url,params);
+                                removeSessionItem("sourcePhone");
+                                removeSessionItem("actListId");
+                                console.log('数据··········',loginSource);
+                            /*-----------------------end-----------------------*/
+                            }else {
+                                setTimeout(function() {
+                                    $("#appenLogin").remove();
+                                    location.reload();
+                                },100)
+                            }
+                            
+                        },function(errerr,textStatus, errorThrown) {
+                            ifawaitPhone = true;
+                            $(".loginError").html(errerr);
+                            //$("#userImg").val("")
+                            $("#userCode").val("")
+                            //ifsendMessage=false;
+                            checkLoginStatus()
+                            //imgCode()
+
+                        })
+                    },
+                    //随便聊聊
+                    ".justPhone_button_houer":function(){
+                       let params = {
+                          phone:$(".justPhone_phone").val(),
+                          hmsr:loginParams.hmsr, 
+                          hmpl:loginParams.hmpl 
+
+                       }
+                        apiPost('/tospurWeb/v1/capp/rongcloud/tourist/login',params).then(function(res) {
+                            setStorage({
+                                pcToken:res.token,
+                                pcryToken:JSON.stringify({ryToken:res.ryToken}),
+                                pcUsername:res.phone,
+                                currentRule:"hour"
+                            });
+                            setTimeout(function() {
+                                $("#appenLogin").remove();
+                                // $(".loginBtn").hide();
+                                // $(".dl").show();
+                                // $(".loginedShow_img").show();
+                                // $(".loginedShow").show();
+                                // $(".loginOut").show(); 
+                                // $(".loginedShow").html(res.phone).attr("title",res.phone);
+                                let id =  $('#buildidbox').val() || getQueryVariable("id") || buildMess.id || '';
+                                //location.reload() 
+                                tcImChat.noLogin = false;
+                                tcImChat.goChat(1, id,user_id,'',{
+                                    workNo:user_id,
+                                    phone:res.phone
+                                });
+                            },100)
+                        },function(res){
+                            alert(res)
+                        })
+                    },
+                    //从随便聊聊进入登录
+                    ".justPhone_button_login":function(){
+                        let phone = $(".justPhone_phone").val();
+                        $(".justPhone").fadeOut(500,function(){
+                            $(".normal").fadeIn(500,function(){
+                                $("#userTelephone").val(phone)
+                            })
+                        })
+                    }
+                },
+                'input propertychange':{
+                   "#userImg"(){
+                       getCodeStatus()
+                   },
+                   "#userCode"(){
+                      if($(this).val().length == 6){phoneCode = true; checkLoginStatus()}
+                      else {phoneCode = false;checkLoginStatus()}
+                   },
+                   "#userTelephone"(){
+                     checkPhone("#userTelephone")
+                   },
+                   ".justPhone_phone"(){
+                     checkPhone(".justPhone_phone")
+                   }
+                }
+            });
+            }
+            
+
+        })
+        function getDate(data){
+        user_id = data.ryUserId || 'user_64986'
+        let url = '';
+        if(data.avatarUrl)url = data.avatarUrl + '?x-oss-process=image/resize,h_60,w_60'
+        else url = "/static/img/photo_default.png"
+        let str = 
+        '<img class="justPhone_img" src="'+url+'"alt="">'+
+        '<div>'+
+           '<div>'+
+              '<h3 class="justPhone_h3 disL">'+data.userName+'</h3>'+
+              '<p class="disL">'
+        let str2 = '';
+        for (let index = 0; index < 5; index++) {
+                if(index<=data.satisfaction)str2+= ' <img class="justPhone_img_star" src="/static/img/star_yellow3@2x.png">'
+                else  str2+= ' <img class="justPhone_img_star" src="/static/img/star_gray3@2x.png">'
+        }
+         let str1 =          
+                  '<span class="justPhone_star_num">'+(data.satisfaction-0).toFixed(1)+'</span>'+
+              '</p>'+
+           '</div>'+
+           '<div>'+
+             '<p class="label">'
+        let str3 = '';   
+        data.expertiseFieldList.forEach((item,index)=>{
+            if(index>2)return;
+            str3 += '<span class="justPhone_span">'+item.paraValue+'</span>'
+        })
+       let str4 ='</p></div></div>';
+      $(".justPhone_divs").html(str + str2 + str1 + str3 + str4)
+    }
+        // 领取优惠券
+        function getCoupon(url,params) {
+            apiPost(url, params).then((rem)=>{
+                var url = "/base/bg/burying/point/saveOrUpdatePc";
+                var pointParams = {
+                    actListId:params.actListId,
+                    popupNowReceive:"1"
+                };
+                layer.closeAll();
+                // 登录过后的
+                layer.open({
+                    type: 1, 
+                    title:"",
+                    id:"layer-plugin",
+                    area: ['300px', '175px'],
+                    content: '<div class="plugin-mode once"><div class="plugin-head"><i class="iconfont iconsuccess tips-icon"></i><span class="title">领取成功</span></div><div class="plugin-bt"><a href="javascript:;" class="look-btn push-act">去查看</a><a href="javascript:;" class="back-btn">逛楼盘</a></div></div>',
+                    cancel: function(index, layero){
+                        location.reload();
+                    }
+                });
+                sendActPoint(url,pointParams);
+            },function(err,resd){
+                var url = "/base/bg/burying/point/saveOrUpdatePc";
+                var pointParams = {
+                    actListId:params.actListId,
+                    popupNowReceive:"1"
+                };
+                sendActPoint(url,pointParams);
+                console.log("返回·············",resd);
+                layer.closeAll();
+                if(err && typeof err !== undefined){
+                    layer.open({
+                        type: 1, 
+                        title:"",
+                        id:"layer-plugin",
+                        area: ['300px', '175px'],
+                        content: '<div class="plugin-mode once"><div class="plugin-head"><i class="iconfont iconfailure tips-icon"></i><span class="title">'+err+'</span></div><div class="plugin-bt"><a href="javascript:;" class="back-btn">逛楼盘</a></div></div>',
+                        cancel: function(index, layero){
+                            location.reload();
+                        }
+                    });
+                }else {
+                    layer.open({
+                        type: 1, 
+                        title:"",
+                        id:"layer-plugin",
+                        area: ['300px', '175px'],
+                        content: '<div class="plugin-mode once"><div class="plugin-head"><i class="iconfont iconfailure tips-icon"></i><span class="title">领取失败</span></div><div class="plugin-bt"><a href="javascript:;" class="back-btn">逛楼盘</a></div></div>',
+                        cancel: function(index, layero){
+                            location.reload();
+                        }
+                    });
+                }
+            })
+        };
+        // 活动埋点数据发送
+        function sendActPoint(url,params){
+            console.log("埋点······",params);
+            apiPost(url, params).then((rem)=>{})
+        }
+      window.loadforLogin = true;
+    </script>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+  body{
+    overflow: hidden;
+  }
+ .spread_main_styles {
+    margin-top: 10px;
+    width: 100%;
+    overflow-y: auto;
+  }
+  .spread_main_styles > div {
+    /* display: inline-block;
+    margin-right: 25px; */
+  }
+   .spread_main_styles .styles_divs {
+    color: #323232;
+    font-size: 15px;
+    white-space: nowrap;
+  }
+  .busList {
+    margin: 15px 0;
+  }
+   .busList_left {
+    color: #323232;
+    font-size: 13px;
+    font-style: normal;
+  }
+   .busList_center {
+    color: #C0C3CA;
+    font-size: 13px;
+    max-width: 78%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+  }
+  .busList_right {
+    float: right;
+    color: #A9A8AE;
+    font-size: 11px;
+  }
+ .busList_right_img {
+    width: 6px;
+    height: 9px;
+  }
+  .rightContent{
+    height: 200px;
+    border: 1px solid #ccc;
+  }
+  .mapWarp{
+      overflow: hidden;
+  }
+  #locationWarp{
+    height: 100%;
+    margin: 0;
+  }
+  .styles_span{
+    display: inline-block;
+    margin-right: 25px;
+    font-size: 15px;
+  }
+  .baseColor{
+    color: #00A4FF !important;  
+  }
+  .BMap_cpyCtrl {
+    display:none;
+}
+.anchorBL{
+    display:none;
+}
+.messLists{
+  margin-bottom: 10px;
+}
+</style>
+<body>
+  <script src="https://hm.baidu.com/hm.js?4fad61221c5ec987b1c72cdf2819a289"></script>
+ <div >
+     <div class="mapWarp"> 
+        <div class="mapContent" id="tcMap"></div> 
+        <div class="rightContent"> 
+          <ul id="locationWarp"></ul> 
+        </div> 
+        <div class="spread_main_styles">
+            <div  class="styles_divs">
+               <!-- <span class="styles_span baseColor">公交(6)</span>
+               <span class="styles_span">地铁(6)</span>
+               <span class="styles_span">教育(6)</span>
+               <span class="styles_span">医院(9)</span> -->
+            </div>
+        </div>
+        <div class="messLists">
+            <!-- <div class="messList">
+                <div  class="busList">
+                  <span class="busList_left">漕盈路公交</span>
+                  <span class="busList_center">(青浦24路、青浦9路)</span>
+                  <span class="busList_right">
+                    <img class="busList_right_img" src="../../assets/img/distance@2x.png" alt="">
+                    63m
+                  </span>
+                </div>
+            </div>
+            <div class="messList">
+                <div  class="busList">
+                  <span class="busList_left">漕盈路公交</span>
+                  <span class="busList_center">(青浦24路、青浦9路)</span>
+                  <span class="busList_right">
+                    <img class="busList_right_img" src="../../assets/img/distance@2x.png" alt="">
+                    63m
+                  </span>
+                </div>
+            </div>
+            <div class="messList">
+                <div  class="busList">
+                  <span class="busList_left">漕盈路公交</span>
+                  <span class="busList_center">(青浦24路、青浦9路)</span>
+                  <span class="busList_right">
+                    <img class="busList_right_img" src="../../assets/img/distance@2x.png" alt="">
+                    63m
+                  </span>
+                </div>
+            </div> -->
+        </div>
+     </div> 
+</div>    
+</body>
+<script src="https://libs.cdnjs.net/zepto/1.2.0/zepto.js"></script> 
+<script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&amp;ak=onBnxFbt0v7s9fmhaEpgUktrhyK7duY0"></script>
+<script>
+    var map = new BMap.Map("locationWarp");
+    // 创建地图实例 
+    console.log(55555, $(window.parent.document.querySelector(".footerImg")).attr("lng"))
+    let lng =   $(window.parent.document.querySelector(".footerImg")).attr("lng");
+    let lat = $(window.parent.document.querySelector(".footerImg")).attr("lat")
+   var point = new BMap.Point(lng, lat);
+   // 创建点坐标  
+   map.centerAndZoom(point, 15);
+   map.disableDragging();;
+   var options = {
+      onSearchComplete:function(results) {
+        // 判断状态是否正确
+        mySearchCompleteCallback(results, BMap, map)
+       }
+    }
+  let  local = new BMap.LocalSearch(map, options);
+  let obj={};
+   local.searchNearby(['公交', '地铁','教育', '医院', '银行','美食','购物','健身'], new BMap.Point(lng, lat), 3000);
+   function mySearchCompleteCallback(LocalResult, BMap, map) {
+      if (LocalResult.length < 1) return;
+      
+      for (var i = 0; i < LocalResult.length; i++) {
+        if (LocalResult[i].Ir.length > 0) {
+          var s = LocalResult[i].Ir;
+          var keyword = LocalResult[i].keyword;
+            addhousePeriphery(keyword, s, BMap, map)
+          }
+      }
+      spanList(obj)
+     //this.$set(this.housePeriphery, 'listMess', (this.housePeriphery.styleList[0] && this.housePeriphery.styleList[0].currentMess) || [])
+    };          
+function addhousePeriphery(keyword, messList, BMap, map) {
+       messList.forEach(item => {
+          let d = map.getDistance(new BMap.Point(lng, lat), new BMap.Point(item.point.lng, item.point.lat))
+          d = parseInt(d);
+          if (d > 1000)d = (d / 1000).toFixed(1) + 'k'
+          item.distance = d;
+       });
+      obj[keyword] = messList
+};
+  function spanList(obj){
+      let str = '',str1="";
+      Object.keys(obj).forEach((item,index)=>{
+        let r = index == 0?"baseColor":"";
+        str += '<span class="styles_span '+r+'" name="'+item+'">'+item+'('+obj[item].length+')</span>';
+        if(index == 0)messMore(item);
+      })
+    $(".styles_divs").html(str);
+    $(".styles_span").each(function(i,item){
+      $(item).click(function(){
+        $(".styles_span").removeClass("baseColor");
+        $(this).addClass("baseColor");
+        messMore($(this).attr("name"))
+      })
+    })
+  }    
+  function messMore(item){
+      let str = '';
+    obj[item].forEach((res,index)=>{
+        if(index>=3)return
+        let s = res.address.split(";").join("、");
+        str +=' <div class="messList">'+
+              '  <div  class="busList">'+
+              '    <span class="busList_center"><i class="busList_left">'+res.title+'</i>('+s+')</span>'+
+              '    <span class="busList_right">'+
+              '      <img class="busList_right_img" src="../../assets/img/distance@2x.png" alt="">'+
+              '      '+res.distance+'m'+
+              '    </span>'+
+              '  </div>'+
+              '</div>'
+           
+    })
+    $(".messLists").html(str) 
+  }
+ function SquareOverlay(center, length,color){
+    this._center = center;
+    this._length = length;
+    this._color = color;
+}
+// 继承API的BMap.Overlay
+SquareOverlay.prototype = new BMap.Overlay();
+SquareOverlay.prototype.initialize = function(map){
+    this._map = map;
+    var div = document.createElement("div");
+    div.style.position = "absolute";
+    // 可以根据参数设置元素外观
+    div.style.width = this._length + "px";
+    div.style.height = this._length + "px";
+    div.style.background = "url(../../img/Surrounding.png)";
+    div.style.backgroundSize = "30px 30px";
+    div.id = "coverPonit"
+    // 将div添加到覆盖物容器中
+    map.getPanes().markerPane.appendChild(div);
+    // 保存div实例
+    this._div = div;
+    return div;
+}
+// 实现绘制方法   
+SquareOverlay.prototype.draw = function(){    
+// 根据地理坐标转换为像素坐标，并设置给容器    
+    var position = this._map.pointToOverlayPixel(this._center);    
+    this._div.style.left = position.x - this._length / 2 + "px";    
+    this._div.style.top = position.y - this._length / 2 + "px";    
+}
+var mySquare = new SquareOverlay(map.getCenter(),30, "red");    
+map.addOverlay(mySquare);
+$(function(){
+   $("#locationWarp").click(function(){
+       window.parent.pushMap();
+   })
+})
+</script>
+</html>

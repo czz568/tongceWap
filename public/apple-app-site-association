@@ -1,0 +1,14 @@
+{
+    "applinks": {
+        "apps": [],
+        "details": [
+            {
+                "appID": "PZF544P2DF.com.tospur.goodHouseClient",
+                "paths": [ "*" ]
+            },{
+                "appID": "AYB7599EHE.com.tospur.houseB",
+                "paths": [ "*" ]
+            }
+        ]
+    }
+}

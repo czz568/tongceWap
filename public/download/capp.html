@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+   <meta name="format-detection" content="telephone=yes" />
+   <title>同策好房App下载</title>
+</head>
+<style>
+html,
+body{
+   margin: 0;
+   padding: 0;
+   width: 100%;
+   height: 100%;
+}
+.box{
+   position: relative;
+   width: 100%;
+   height: 100%;
+   background-image: url('./bg@2x.png');
+   background-size: 100% auto;
+   background-repeat: no-repeat;
+}
+.iphone, .android{
+   position: absolute;
+   width: 329px;
+   height: 57px;
+   left: 50%;
+   margin-left: -165px;
+   text-align: center;
+}
+.iphone{
+   bottom: 120px;
+}
+.android{
+   bottom: 60px;
+}
+img{
+   width: 100%;
+   height: 100%;
+}
+.modelBox{
+   width: 19rem;
+   height: 22rem;
+   position: absolute;
+   top: 148px;
+   left: 50%;
+   background-image: url('./bg_tc@2x.png');
+   background-size: 100% 100%;
+   transform: translateX(-50%);
+}
+.imgBox{
+    margin-top: 1.9rem;
+    width: 60px;
+    height: 60px;
+    background: url('./photo_default@2x.png');
+    background-size: 100% 100%;
+    border-radius: 8px;
+
+}
+.modelBoxT{
+   height: 8.5rem;
+}
+.boxTop{
+   position: absolute;
+    overflow: hidden;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.boxTopSpan{
+    color: #000;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 6px;
+    font-weight: 700;
+}
+.span_mess{
+   color: #666666;
+   font-size: 14px;
+   text-align: center;
+   margin-top: 26px;
+}
+.span_num{
+   color:#000000;
+   font-size: 36px;
+   margin-top: 8px;
+   text-align: center;
+}
+.span_button{
+   text-align: center;
+   margin-top: 8px;
+}
+.span_button_input{
+   text-align: center;
+    width: 180px;
+    height: 36px;
+    background-color: #58D9CB;
+    color: white;
+    border-radius: 18px;
+    outline: none;
+    border: none;
+    line-height: 36px;
+    display: inline-block;
+}
+.span_alert{
+   text-align: center;
+   color:#777777;
+   font-size: 12px;
+   margin-top: 30px;
+}
+.modelBess{
+   width: 100%;
+   height: 100%;
+   background-color: rgba(55,55,55,.7);
+   position: relative;
+   display: none;
+}
+.modelBess1{
+   width: 100%;
+   height: 100%;
+   background-color: rgba(55,55,55,.7);
+   position: relative;
+   display: none;
+   z-index: 100;
+}
+.icon-close{
+   position: absolute;
+    right: 20px;
+    top: 28px;
+}
+.icon-close img{
+   width: 14px;
+   height: 14px;
+}
+.unloadInstall{
+   width: 70px;
+    height: 100px;
+    position: absolute;
+    right: 20px;
+    top: 13px;
+    transform: rotate(7deg );
+}
+.unloadMess{
+   color: white;
+    position: absolute;
+    right: 28px;
+    top: 114px;
+    font-family: cursive;
+    font-size: 20px;
+}
+</style>
+<body>
+   <div class="box">
+      <a class="iphone" href="https://itunes.apple.com/cn/app/id1489550214"><img src="./btn_iPhone@2x.png" alt=""></a>
+      <a  class="android" title="android" href="https://tchf-prod.oss-cn-hangzhou.aliyuncs.com/houseclient_prod.apk"><img src="./btn_Android@2x.png" alt=""></a>
+      <div class="modelBess">
+         <div class="modelBox">
+            <div class="modelBoxT">
+               <div class="boxTop">
+                  <div class="imgBox"></div>
+                  <div class="boxTopSpan"></div>
+               </div>
+            </div>
+
+             <div>
+                <div class="span_mess">我的邀请码</div>
+                <div class="span_num"></div>
+                <div class="span_button">
+                   <div class="span_button_input"  onclick="copy()">点击复制</div>
+                </div>
+                <div class="span_alert">使用我的邀请码，获取专属置业服务</div>
+             </div>
+             <div class="icon-close" onclick="closeBox()">
+                <img src="./btn_close@2x.png" alt="">
+             </div>
+         </div>
+      </div>
+      <div class="modelBess1 unload" >
+         <img class="unloadInstall" src="./arrow.png" alt="">
+         <div class="unloadMess"><span>请点击右上角</span><br/>
+              <span>通过浏览器下载</span>
+          </div>
+      </div>
+   </div>
+   <div id="btn"></div>
+      <!-- <a title="android" href="https://tcprod.tospur.com/download/client/android/houseclient_prod.apk"><h1 style="font-size:15pt">点击下载android安装包（同策好房）</h1></a> -->
+</body>
+<script type="text/javascript" src="https://cdn.staticfile.org/jquery/1.8.1/jquery.min.js"></script>
+<script type="text/javascript" charset="UTF-8" src="//res.cdn.openinstall.io/openinstall.js"></script>
+<script type="text/javascript" id="_openinstall_banner" src="//openinstall.io/openinstall.js?id=1129807816877359326"></script>
+<script type="text/javascript">
+   var data = OpenInstall.parseUrlParams();
+   new OpenInstall({
+       appKey : "vyy08c",
+       onready : function() {
+           var m = this, button = document.getElementById("downloadButton");
+           button.style.visibility = "visible";
+
+           m.schemeWakeup();
+           button.onclick = function() {
+               m.wakeupOrInstall();
+               return false;
+           }
+       }
+   }, data);
+
+</script>
+<script>
+   let timeout1='',timeout2='';
+   window.onload = function(){
+      let imgUrl = GetQueryValue("imgUrl"),
+      name=GetQueryValue("name")
+      inviteCode = GetQueryValue("inviteCode");
+      if(inviteCode){
+         document.querySelector(".modelBess").style.display = 'block';
+       }
+      imgUrl &&  (document.querySelector(".imgBox").style.backgroundImage = `url(${imgUrl})`)
+      document.querySelector(".boxTopSpan").innerHTML = name;
+      document.querySelector(".span_num").innerHTML = inviteCode;
+
+      window.onbeforeunload=function(e){
+          clearTimeout(timeout1)
+          clearTimeout(timeout2)
+      }
+      let ua = window.navigator.userAgent.toLowerCase();
+      var micromessenger = ua.match(/MicroMessenger/i);
+      let weixin = micromessenger == 'micromessenger'?true:false;
+
+	    // 判断是否是微信内置浏览器
+	   if (weixin) {
+	   	document.querySelector(".modelBess1").style.display = 'block'
+      }
+   };
+   function closeBox(){
+      document.querySelector(".modelBess").style.display = 'none';
+      ifWeixin()
+   }
+   function GetQueryValue(queryName) {
+     var query = decodeURI(window.location.search.substring(1));
+     var vars = query.split("&");
+     for (var i = 0; i < vars.length; i++) {
+         var pair = vars[i].split("=");
+         if (pair[0] == queryName) { return pair[1]; }
+     }
+     return null;
+   }
+   function copy(){
+      let val = document.querySelector(".span_num").innerText;
+      copyValue(val)
+   }
+   // function copyValue(val){
+   //    // var temp = document.createElement('textarea');
+   //    // temp.value = val;
+   //    // document.body.appendChild(temp);
+   //    //  temp.select(); // 选择对象
+   //    // document.execCommand("Copy"); // 执行浏览器复制命令
+   //    // temp.blur();
+   //    // temp.style.display='none';
+   //    // document.querySelector(".modelBess").style.display = 'none';
+
+
+
+
+   //    ifWeixin()
+   // }
+   function copyValue(text){
+    // 数字没有 .length 不能执行selectText 需要转化成字符串
+    const textString = text.toString();
+    let input = document.querySelector('#copy-input');
+    if (!input) {
+      input = document.createElement('input');
+      input.id = "copy-input";
+      input.readOnly = "readOnly";        // 防止ios聚焦触发键盘事件
+      input.style.position = "absolute";
+      input.style.left = "-1000px";
+      input.style.zIndex = "-1000";
+      document.body.appendChild(input)
+    }
+
+    input.value = textString;
+    // ios必须先选中文字且不支持 input.select();
+    selectText(input, 0, textString.length);
+    if (document.execCommand('copy')) {
+      document.execCommand('copy');
+    }else {
+      console.log('不兼容');
+    }
+    input.blur();
+
+    // input自带的select()方法在苹果端无法进行选择，所以需要自己去写一个类似的方法
+    // 选择文本。createTextRange(setSelectionRange)是input方法
+    function selectText(textbox, startIndex, stopIndex) {
+      if (textbox.createTextRange) {//ie
+        const range = textbox.createTextRange();
+        range.collapse(true);
+        range.moveStart('character', startIndex);//起始光标
+        range.moveEnd('character', stopIndex - startIndex);//结束光标
+        range.select();//不兼容苹果
+      } else {//firefox/chrome
+        textbox.setSelectionRange(startIndex, stopIndex);
+        textbox.focus();
+      }
+    }
+    $("#copy-input").hide()
+    var ele = document.querySelector('body');
+     ele.scrollTop = ele.scrollHeight;
+    document.querySelector(".modelBess").style.display = 'none';
+    ifWeixin()
+  };
+   function ifWeixin(){
+      var ua = window.navigator.userAgent.toLowerCase();
+	    var u = navigator.userAgent;
+       isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //g
+	    isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+	    var micromessenger = ua.match(/MicroMessenger/i);
+       var weixin = micromessenger == 'micromessenger'?true:false;
+
+	    // 判断是否是微信内置浏览器
+	   if (weixin) {
+	   	document.querySelector(".modelBess1").style.display = 'block'
+      }
+      if(!weixin){
+         // android端
+         var domain = document.domain;
+        if (isAndroid) {
+             // 安卓app的scheme协议
+             window.location.href = 'tongcehf://';
+             timeout1 = setTimeout(function () {
+               if(domain != document.domain)return;
+               let hidden = window.document.hidden || window.document.mozHidden || window.document.msHidden || window.document.webkitHidden
+               // eslint-disable-next-line eqeqeq
+               if (typeof hidden === 'undefined' || hidden == false) {
+                 // App store
+                 window.location.href = 'http://tchf-prod.oss-cn-hangzhou.aliyuncs.com/houseclient_prod.apk';
+               }
+             }, 2000);
+         }
+        // ios端
+        if (isIOS) {
+           // ios的scheme协议
+           window.location.href = 'tchouse://'
+           timeout2 = setTimeout(function () {
+            if(domain != document.domain)return;
+             let hidden = window.document.hidden || window.document.mozHidden || window.document.msHidden || window.document.webkitHidden
+             // eslint-disable-next-line eqeqeq
+             if (typeof hidden === 'undefined' || hidden == false) {
+               // App store下载地址
+               window.location.href = 'https://apps.apple.com/us/app/%E5%90%8C%E7%AD%96%E5%A5%BD%E6%88%BF/id1489550214?l=zh&ls=1';
+             }
+           }, 2000);
+          }
+          window.onblur = function() {
+              clearTimeout(timeout2);
+          }
+	     }
+     }
+   function hideModule(){
+      document.querySelector(".modelBess1").style.display = 'none'
+   }
+   //判断手机上是否安装了app，如果安装直接打开，如果没安装，跳转到下载页面
+function openApp(url) {
+	alert(url)
+	if(isAndroid){
+	    var timeout, t = 1000, hasApp = true;
+	    var openScript = setTimeout(function () {
+	        if (!hasApp) {
+	        var durl = "安卓同事提供下载地址";
+	          window.location.href=durl;
+	        }
+	        document.body.removeChild(ifr);
+	    }, 2000)
+
+	    var t1 = Date.now();
+	    var ifr = document.createElement("iframe");
+	    ifr.setAttribute('src', url);
+	    ifr.setAttribute('style', 'display:none');
+	    document.body.appendChild(ifr);
+	    timeout = setTimeout(function () {
+	         var t2 = Date.now();
+	         if (!t1 || t2 - t1 < t + 100) {
+	             hasApp = false;
+	         }
+	    }, t);
+	}
+	if(isIOS){
+		document.getElementById("test").href=url;
+		document.getElementById("test").click();
+	}
+
+}
+   // 获取地址栏参数
+   function Think_Get() {
+      var url = location.href; //获取url中"?"符后的字串
+      var theRequest = new Object();
+      if (url.indexOf("?") != -1) {
+         var str = url.split("?")[1];
+         strs = str.split("&");
+         for(var i = 0; i < strs.length; i ++) {
+            if (unescape(strs[i].split("=")[1]).charAt(unescape(strs[i].split("=")[1]).length - 1) === '#' ) {
+               theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]).slice(0,unescape(strs[i].split("=")[1]).length-1)
+            } else {
+               theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+            }
+         }
+      }
+      return theRequest;
+   }
+</script>
+</html>

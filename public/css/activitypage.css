@@ -1,0 +1,306 @@
+    .activityPage{
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: left top;
+        position: absolute;
+        box-sizing: border-box;
+    }
+    .fixedPrompt{
+        position: fixed;
+        left: 50%;
+        top: 34%;
+        z-index: 10;
+        width: 290px;
+        background:rgba(0,0,0,0.75);
+        border-radius: 6px;
+        transform: translate(-50%, 0);
+        color: #FFFFFF;
+        font-size: 14px;
+        padding: 16px 0;
+        text-align: center;
+    }
+    .couponSuc{
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background:rgba(0,0,0,0.6);
+    }
+    .couponSuc .couponSucCont{
+        width: 240px;
+        background-color: #FFFFFF;
+        border-radius: 6px;
+        position: absolute;
+        left: 50%;
+        top: 16%;
+        transform: translate(-50%, 0);
+        z-index: 1;
+        text-align: center;
+        color: #333333;
+        font-size: 14px;
+        padding-bottom: 25px;
+        
+        
+        
+    }
+    .couponSuc .couponSucCont span{
+            display: block;
+            margin: 40px auto 0;
+            background-color: #73C6A6;
+            border-radius: 20px;
+            width: 190px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 14px;
+            color: #FFFFFF;
+        }
+    .couponSuc .couponSucCont div{
+        width: 80px;
+        height: 80px;
+        background-color: #73C6A6;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 31px auto 14px;
+        
+    }    
+    .couponSuc .couponSucCont div .hook1{
+        width: 30px;
+    }
+    .couponSuc .couponSucCont .close{
+        width: 15px;
+        position: absolute;
+        right: 15px;
+        top: 15px;
+    }
+    .activityRules{
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background:rgba(0,0,0,0.6);
+        display: none;
+    }
+    .activityRules .activityMian{
+        width: 295px;
+        height: 420px;
+        background-color: #FFFFFF;
+        border-radius: 6px;
+        position: absolute;
+        left: 50%;
+        top: 16%;
+        transform: translate(-50%, 0);
+        z-index: 1;
+    }
+    .activityRules .activityMian .determine{
+        line-height: 40px;
+        height: 40px;
+        text-align: center;
+        width: 245px;
+        margin: 25px auto 0;
+        background-color: #73C6A6;
+        border-radius: 22px;
+        color: #FFFFFF;
+        font-size: 14px;
+    }
+    .activityRules .activityMian .title{
+        padding-top: 30px;
+        color: #333333;
+        width: 100%;
+        text-align: center;
+        font-size: 16px;
+    }
+    .activityRules .activityMian .title span{
+        position: relative;
+    }    
+    .activityRules .activityMian .title span::before{
+        content: '';
+        position: absolute;
+        right: -65px;
+        top: 50%;
+        width: 54px;
+        height: 1px;
+        background:linear-gradient(270deg,rgba(255,255,255,1) 0%,rgba(115,198,166,1) 100%);
+    }
+    .activityRules .activityMian .title span::after{
+        content: '';
+        position: absolute;
+        left: -65px;
+        top: 50%;
+        width: 54px;
+        height: 1px;
+        background:linear-gradient(270deg,rgba(115,198,166,1) 0%,rgba(255,255,255,1) 100%);
+    }
+    .activityRules .activityMian ul{
+        width: 270px;
+        height: 277px;
+        overflow-y: auto;
+        margin-left: 20px;
+        margin-top: 10px;
+        -webkit-overflow-scrolling: touch;
+    }
+    .activityRules .activityMian ul li{
+        margin-top: 6px;
+        color: #333333;
+        font-size: 14px;
+        line-height: 21px;
+        margin-bottom: 20px;
+    }    
+    .activityRules .activityMian ul li::last-child{
+        margin-bottom: 0;
+    }
+    .absoluteArea{
+        width: 335px;
+        height: 206px;
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        background-color: #FFF3F5;
+        border-radius: 8px;
+        box-sizing: border-box;
+        padding: 20px 15px 25px 15px;
+        
+        
+    }
+    .absoluteArea .title{
+        display: flex;
+        justify-content: space-between;
+    }
+    .absoluteArea .title span{
+        color: #333333;
+        font-size: 14px;
+        font-weight: 600;
+        position: relative;
+        padding-left: 7px;
+    }
+    .absoluteArea .title span::before{
+        content: '';
+        width: 2px;
+        height: 13px;
+        background: #73C6A6;
+        position: absolute;
+        left: 0;
+        top: 1px;
+    }
+    .absoluteArea .title b{
+        color: #333333;
+        font-size: 14px;
+        text-decoration: underline;
+    }
+    .absoluteArea .timeShow{
+        display: flex;
+        justify-content: space-between;
+        line-height: 40px;
+        color: #666666;
+        font-size: 18px;
+        margin-top: 30px;
+        
+    }
+    .absoluteArea .timeShow span{
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        background:#F0E7E8;
+        border-radius: 5px;
+        color: #333333;
+        font-size: 20px;
+    }
+    .absoluteArea .successBtn{
+        position: absolute;
+        left: 50%;
+        bottom: 25px;
+        width: 100%;
+        height: 44px;
+        background-color: #73C6A6;
+        border-radius: 5px;
+        width: 305px;
+        transform: translate(-50%, 0);
+        line-height: 44px;
+        text-align: center;
+        color: #FFFFFF;
+        font-size: 17px;
+    }
+    .absoluteArea .failBtn{
+        position: absolute;
+        left: 50%;
+        bottom: 25px;
+        width: 100%;
+        height: 44px;
+        background-color: #EDEDED;
+        border-radius: 5px;
+        width: 305px;
+        transform: translate(-50%, 0);
+        line-height: 44px;
+        text-align: center;
+        color: #AFAFAF;
+        font-size: 17px;
+    }
+    .absoluteArea .BtnPhone{
+        position: absolute;
+        left: 50%;
+        bottom: 25px;
+        width: 100%;
+        height: 44px;
+        width: 305px;
+        transform: translate(-50%, 0);
+        
+    }
+    .absoluteArea input{
+        width: 100%;
+        height: 100%;
+        border-radius: 22px;
+        font-size: 16px;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+    .absoluteArea .successph{
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 44px;
+        font-size: 16px;
+        background-color: #73C6A6;
+        z-index: 1;
+        line-height: 44px;
+        color: #FFFFFF;
+        width: 100%;
+        text-align: center;
+        border-radius: 22px;
+    }
+    .absoluteArea .failph{
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 44px;
+        font-size: 16px;
+        background-color: #EDEDED;
+        z-index: 1;
+        line-height: 44px;
+        color: #AFAFAF;
+        width: 100%;
+        border-radius: 22px;
+        text-align: center;
+    }
+    .toast{
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0,0,0,0.6);
+        color: white;
+        padding: 9px 18px;
+        border-radius: 8px;
+        display: none;
+    }
+    .toast span{
+        white-space: nowrap;
+    }

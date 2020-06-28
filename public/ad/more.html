@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>活动列表</title>
+</head>
+<link rel="stylesheet" href="/icon/iconfont.css">
+<link rel="stylesheet" href="/css/coupon.css">
+<body>
+    <div class="activity_main">
+        <div class="activity_main_title">
+            <ul  class="activity_main_ul"></ul>
+        </div>
+        <div class="activity_main_lists"></div>
+        <div class="noMore">没有更多了</div>
+    </div>
+    <div class="modelCity right">
+        <div class="modelCity_right modelCity_div">
+            <span class="clearMoudle"><em class="iconfont iconbtn_close" style="font-size: 15px;"></em></span>
+            <span class="iconRight"><em class="iconfont "></em></span><br/>
+             <span>优惠劵领取成功</span>
+            <span class="modelCity_main_button" style="margin-top: 32px;" onclick="getCrad()">去查看</span>
+        </div>  
+    </div> 
+    <div class="toast">
+        <span>领取成功</span>
+    </div> 
+</body>
+<script src="https://cdn.staticfile.org/jquery/1.8.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/Swiper/5.4.0/js/swiper.min.js"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script type="text/javascript" src="/house/js/tool.js"></script>
+<script type="text/javascript" src="/house/js/crypto-js.js"></script>
+<script type="text/javascript" src="/house/js/http.js"></script>
+<script src="../house/js/coupon.js"></script>
+
+<script>
+let mess = JSON.parse(getSession("buildMessList"));
+domList([mess],true)
+let cardId = '';
+// function getCrad(){
+//    window.location.href="/#/myCard?code="+cardId
+// }
+let api = {
+    getAllCard:'/base/preferential/act/index/detailInfo'
+}
+function clickMao(){
+     //点击切换锚点链接
+     $(".activity_main_li").click(function(i,item){
+         let name  = $(this).text();
+        let ct = mess.columnVOS.filter(i=>i.title == name);
+        ct = ct?ct[0].columnConfigVOS:[];
+        columnList(ct)
+    })   
+} 
+let messAll = '',source = getUrlParams("from"),cityCode= getSession("couponCityCode");
+changeSource(source)
+//渲染 列表
+function domList(data,flag){
+   let str1 = "",str3='';
+//    document.title = data.title;
+   data.forEach((item,index)=>{
+
+      if(flag || item.cityName.indexOf(cityName)>-1){
+         item.columnVOS.length>0 && item.columnVOS.forEach((res,index)=>{
+         let active = res.title == getUrlParams("name")?"active":'';
+         str3 += '<li class="activity_main_li '+active+'" currentname="conlumn'+index+'"><span>'+res.title+'</span></li>';
+        })
+        let ct = item.columnVOS.filter(i=>i.title == getUrlParams("name"));
+        console.log(ct)
+        ct = ct?ct[0].columnConfigVOS:[];
+        columnList(ct)
+      }     
+   })
+  $(".activity_main_ul").html(str3);
+   $(".activity_main_li").click(function(){
+        $(".activity_main_li").removeClass("active");
+        $(this).addClass("active");
+    });
+    $(".activity_main_li").each(function(index,item){
+        console.log($(item).find("spam").width(),$(item).width())
+      if($(item).find("span").width()>$(item).width()){
+        $(".activity_main_li").css({
+            minWidth:'auto'
+        })
+      }
+    })
+    checkWidth();
+    clickMao();
+    clickBuilding();
+}
+function columnList(data){
+    if(!data)return '';
+    let col='',col1="";
+    data.forEach(cou=>{
+     let imgUrl = cou.albumCoverPicture || "../img/pic_default_small@2x.png";
+     let couponName = cou.couponName || "暂无名称";
+     let deaTime = cou.termOfValidityEnd,ifDisabled="",newTime = new Date().valueOf();
+     let {receiveTimeEnd,receiveTimeStart} = cou;
+     if(receiveTimeStart&&receiveTimeEnd){
+        if(new Date(receiveTimeStart.replace(new RegExp("-",'g'), "/")).valueOf()>newTime || new Date(receiveTimeEnd.replace(new RegExp("-",'g'), "/")).valueOf()<newTime){
+        ifDisabled = "disabled";
+     }
+     }
+     
+     col +=  '<div class="main_messList">'+
+             '         <div class="imgdiv"><img class="main_messList_img" src="'+imgUrl+'" alt="" buildingId="'+cou.buildingId+'"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             >'+
+             '        <span class="main_messList_buildingNmae">'+cou.buildingName+'</span></div>'+
+             '        <div class="main_messList_title">'+
+             '            <span >'+couponName+'</span>'+
+             '        </div>'+
+             '        <div class="main_messList_button '+ifDisabled+'" couponDetailId="'+cou.couponDetailId+'" onclick="receiveCard(this)">立即领取</div>'+
+             '</div>'
+    })
+   
+      if(data.length%3 == 1)col+='<div class="main_messList" style="visibility:hidden"></div><div class="main_messList" style="visibility:hidden"></div>'
+      if(data.length%3 == 2)col+='<div class="main_messList" style="visibility:hidden"></div>'
+      col = '<div class="main_messLists">'+col+'</div>'
+      col1 +=  '<div class="activity_main_list">'+
+                
+                col +
+                '</div>' 
+      $(".activity_main_lists").html(col1);           
+}
+//渲染 城市
+let dataListAll={},cityNameNew='上海',cityCodeNew='310100000';
+function map(data){
+   let str = '';
+   data.forEach(item=>{
+       let currentActive = item.cityName.indexOf(cityName)>-1?"active":""; 
+       str += '<span  class="city '+currentActive+'" cityName="'+item.cityName+'"  cityCode="'+item.cityCode+'">'+item.cityName+'</span>';
+       dataListAll[item.cityName] = item;
+       $(".defult .modelCity_main_cityList").html(str);
+       $(".city").click(function(){
+           $(".city").removeClass("active");
+           $(this).addClass("active");
+           cityNameNew = $(this).attr("cityname");
+           cityCodeNew = $(this).attr("cityCode")  
+       })
+   });
+   
+}
+// function receiveCard(id){
+//    console.log(id)
+// }
+function clickMore(){
+    let name = $(".more_icon").attr("columnTitle");
+  window.location.href = "/ad/moer.html?name="+name  
+}
+function checkWidth(){
+   $(".main_messList_title").each(function(index,item){
+      let length = $(item).width()-0,dom = $(item).find("span"),length1 =  $(dom).width()-0;
+      if(length1>length){
+          let fw=0;
+          setInterval(function(){
+            $(dom).css({'transform':`translateX(${fw}px)`});
+            fw = fw-3;
+            if(Math.abs(fw)>length1+8)fw = length;
+          },100)
+      }
+   }) 
+}
+function getUrlParams(name) { 
+    var url = window.location.search;
+    if (url.indexOf('?') == 1) { return false; }
+    url = url.substr(1);
+    url = url.split('&');
+    var name = name || '';
+    var nameres;
+    for(var i=0;i<url.length;i++) {
+        var info = url[i].split('=');
+        var obj = {};
+        obj[info[0]] = decodeURI(info[1]);
+        url[i] = obj;
+    }
+    if (name) {
+        for(var i=0;i<url.length;i++) {
+            for (const key in url[i]) {
+                if (key == name) {
+                    nameres = url[i][key];
+                }
+            }
+        }
+    } else {
+        nameres = url;
+    }
+    return nameres;
+}
+</script>
+</html>

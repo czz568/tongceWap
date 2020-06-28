@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<link rel="stylesheet" href="/icon/iconfont.css">
+<link rel="stylesheet" href="/css/coupon.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/Swiper/5.4.1/css/swiper.min.css">
+
+<body>
+    <!-- <div class="title">
+
+    </div> -->
+    <div class="activity_nav">
+        <div class="activity_nav_points">
+            <span class="activity_nav_address">
+                <em class="iconfont iconpoint_s"></em>
+                <em class="iconpoint_name">上海</em>
+            </span>
+            <span class="activity_nav_rules">活动规则</span>
+        </div>
+    </div>
+
+    <div class="newsBox">
+        <div class="newsCon">
+            <div class="news">
+                <div class="newsImg"> <img src="./img/news.png" alt=""></div>
+                <div class="swiper-container swiper-container2">
+                    <div class="swiper-wrapper newsList">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="adver">
+                <div class="swiper-container swiper-container3 swip3">
+                    <div class="swiper-wrapper operateList">
+                        <!-- <div class="swiper-slide adverList">
+                            <div class="adverLeft">
+                                <img src="./img/adLeft.jpg" alt="">
+                            </div>
+                            <div class="adverRight">
+                                <span>
+                                    <img src="./img/adRight.jpg" alt="">
+                                </span>
+                                <span>
+                                    <img src="./img/adRight.jpg" alt="">
+                                </span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide adverList">
+                            <div class="adverLeft">
+                                <img src="./img/adLeft.jpg" alt="">
+                            </div>
+                            <div class="adverRight">
+                                <span>
+                                    <img src="./img/adRight.jpg" alt="">
+                                </span>
+                                <span>
+                                    <img src="./img/adRight.jpg" alt="">
+                                </span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide adverList">
+                            <div class="adverLeft">
+                                <img src="./img/adLeft.jpg" alt="">
+                            </div>
+                            <div class="adverRight">
+                                <span>
+                                    <img src="./img/adRight.jpg" alt="">
+                                </span>
+                                <span>
+                                    <img src="./img/adRight.jpg" alt="">
+                                </span>
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="swiper-pagination swiper-pagination3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="activity_main">
+        <div class="activity_main_title">
+            <div class="sk swiper-container">
+                <ul class="activity_main_ul swiper-wrapper">
+                    <!-- <li class="activity_main_li active"><span>折扣专场</span></li>
+                    <li class="activity_main_li"><span>优惠专场</span></li>
+                    <li class="activity_main_li"><span>买赠专场</span></li>
+                    <li class="activity_main_li"><span>爆款专场</span></li> -->
+                </ul>
+            </div>
+        </div>
+        <div class="activity_main_lists">
+
+        </div>
+        <div class="lastBtn"><a href="javascript:void(0)" columnTitle="' + columnTitle + '"
+                onclick=clickMoreAll()>查看更多优惠楼盘 <img src="./img/jt.png"><img src="./img/jt.png"></a></div>
+    </div>
+    <div class="modelCity defult">
+        <div class="modelCity_main modelCity_div">
+            <span class="clearMoudle"><em class="iconfont iconbtn_close" style="font-size: 15px;"></em></span>
+            <h2 class="modelCity_main_title">城市选择</h2>
+            <div class="modelCity_main_cityList"> </div>
+        </div>
+    </div>
+    <div class="modelCity rules">
+        <div class="modelCity_rules modelCity_div">
+            <span class="clearMoudle"><em class="iconfont iconbtn_close" style="font-size: 15px;"></em></span>
+            <h2 class="modelCity_main_title">活动规则</h2>
+            <div class="modelCity_main_cityList">
+                <span></span>
+            </div>
+            <div class="modelCity_main_footer">
+                <span class="modelCity_main_button">确定</span>
+            </div>
+        </div>
+    </div>
+    <div class="modelCity right">
+        <div class="modelCity_right modelCity_div">
+            <span class="clearMoudle"><em class="iconfont iconbtn_close" style="font-size: 15px;"></em></span>
+            <span class="iconRight"><em class="iconfont icongou1"></em></span><br />
+            <span>优惠劵领取成功</span>
+            <span class="modelCity_main_button" style="margin-top: 32px;" onclick="lookCrad()">去查看</span>
+        </div>
+    </div>
+    <div class="toast">
+        <span>领取成功</span>
+    </div>
+    <div id="login">
+
+    </div>
+
+
+</body>
+<script src="https://cdn.staticfile.org/jquery/1.8.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/Swiper/5.4.0/js/swiper.min.js"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+<script type="text/javascript" src="/house/js/crypto-js.js"></script>
+<script type="text/javascript" src="/house/js/http.js"></script>
+<script type="text/javascript" src="/house/js/tool.js"></script>
+<script src="/house/js/coupon.js"></script>
+<script>
+    function loadSwiper1() {
+        var swiper = new Swiper('.swiper-container2', {
+            direction: 'vertical',
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            observer: true,
+            observeSlideChildren: true,
+            observeParents: true,
+            loop: true
+        });
+    }
+
+    function loadSwiper2() {
+        var swiper = new Swiper('.swiper-container3', {
+            pagination: {
+                el: '.swiper-pagination3'
+            },
+            autoplay: {
+                delay: 3500,
+                disableOnInteraction: false,
+            },
+            observer: true,
+            observeSlideChildren: true,
+            observeParents: true,
+            loop: true
+        });
+    }
+    let messAll = '',
+        source = getUrlParams("from"),
+        cityName = "上海",
+        cityCode = "310100000";
+    $(function () {
+        $(".clearMoudle").click(function (e) {
+            if ($(this).parents(".modelCity").hasClass("defult")) checkCity()
+            $(this).parents(".modelCity").hide();
+        })
+        $(".modelCity_div").click(function (e) {
+            e.stopPropagation();
+        })
+        $(".modelCity").click(function () {
+            if ($(this).hasClass("defult")) checkCity()
+            $(this).hide();
+        });
+        $(".activity_nav_address").click(function () {
+            if (noClickMap) return showToast("目前只有一个城市");
+            $(".modelCity.defult").show()
+        });
+        $(".activity_nav_rules").click(function () {
+            $(".modelCity.rules").show();
+        });
+        $(".rules .modelCity_main_button").click(function () {
+            $(".modelCity.rules").hide();
+        });
+        $(document).on("click", ".newsCli", function () {
+            var cid = $(this).attr("artId");
+            window.location.href = "/ad/infoDetail.html?id=" + cid;
+        })
+        $(document).on("click", ".operateTu", function () {
+            var type = $(this).attr("type");
+            var data = $(this).attr("data");
+            if (type == 1) {
+                //链接
+                if(data!='' && data!=null){
+                    window.location.href = `${data}`
+                }
+                
+
+            } else if (type == 2) {
+                //文章
+                if(data>0){
+                    window.location.href = `/ad/infoDetail.html?id=${data}`
+                }
+            } else if (type == 3) {
+                //楼盘
+                let agreement = window.location.protocol
+                let domain = window.location.host;
+                if(data>0){
+                    window.location.href = `${agreement}//${domain}/dynamicPages/mstation/${data}.html`
+                }
+                
+            } else if (type == 4) {
+                if(data>0){
+                    window.location.href = `/ad/infoDetail.html?id=${data}&type=4&from="activity"`
+                }
+            }
+
+        })
+
+    })
+    let cardId = '';
+    let api = {
+        getAllCard: '/base/preferential/act/index/detailInfo',
+        count: "/base/api/preferentialAct/statistics/openCount",
+        getPhone: "/tospurWeb/capp/v2/user/getUserPhoneByBuilding"
+    }
+    getAllCard();
+    let review = true,
+        allHeights = [];
+    let scrollHeight = 0,
+        currentPoint = 0,
+        flag = true,
+        flag1 = true;
+
+    function scrollDom() {
+        allHeights = [];
+        $(".activity_main_li").each((index, item) => {
+            let top = '',
+                s = $("." + $(item).attr("currentname"));
+            allHeights.push(s.offset().top)
+        })
+        $(window).scroll(function () {
+            scrollTopDom()
+        })
+
+    };
+
+    function count() {
+        let params = {
+            code: getUrlParams("actId"),
+            type: 2,
+            cityCode: cityCode,
+            sorce: sorce == "app" ? 1 : sorce == "pc" ? 2 : 3
+        }
+        apiPost(api.count, params).then(res => {})
+    }
+
+    function scrollTopDom() {
+        // 获取当前滚动的高度
+        var top = document.body.scrollTop + document.documentElement.scrollTop;
+        top = top + 90;
+        if (review) {
+            review = false;
+            scrollHeight = document.body.scrollHeight;
+        }
+        let index = 0;
+        if (top >= allHeights[allHeights.length - 1]) {
+            index = allHeights.length - 1
+        } else {
+            $(allHeights).each((i, res) => {
+                if (top < res && top > allHeights[i - 1]) return index = i - 1
+            })
+        }
+        if (currentPoint != index && !currentGun) {
+            currentPoint = index;
+            $(".activity_main_li").removeClass("active");
+            $($(".activity_main_li")[index]).addClass("active")
+        }
+        // 滚动条距离顶部的距离 大于 200px时
+        if (top >= 300 && flag) {
+            flag = false;
+            $(".activity_main_title").css({
+                "position": "fixed",
+                "top": "0",
+                "z-index": "9"
+            });
+        } else if (top < 300) {
+            flag = true;
+            $(".activity_main_title").css("position", "relative");
+        }
+    }
+    var currentGun = false;
+
+    function clickMao() {
+        //点击切换锚点链接
+        $(".activity_main_li").each(function (i, item) {
+            $(item).click(function (e) {
+                $(".activity_main_li").removeClass("active")
+                $(this).addClass("active");
+                let id = $(this).attr("currentName");
+                currentGun = true;
+                let to = allHeights[i] - 90;
+                $('html,body').animate({
+                    scrollTop: to
+                }, 500)
+                setTimeout(_ => {
+                    currentGun = false;
+                }, 600)
+            })
+        })
+    }
+
+    function getAllCard() {
+        let params = {
+            actId: getUrlParams("actId")
+        }
+        apiPost(api.getAllCard, params).then(function (data) {
+            console.log(5623, data)
+            if (data && Object.keys(data).length > 0) {
+                messAll = data;
+                // 头图
+                let imgUrl = "";
+                source == "pc" ? imgUrl = data.popPicturePc : imgUrl = data.h5Picture;
+                $(".activity_nav").css("backgroundImage", `url(${imgUrl})`);
+                document.title = data.title;
+                //保存分享内容
+                let share = {
+                    shareDescription: data.shareDescription, //活动分享链接描述
+                    sharePicture: data.sharePicture, //分享图片
+                    shareTitle: data.shareTitle, //活动分享链接标题
+                    code: data.code,
+                    title: data.title,
+                    actId: data.actId
+                }
+                setSession({
+                    share: JSON.stringify(share)
+                });
+                //新闻
+                // data.articleVOS = ''
+                // data.operationVOS = ''
+                getNews(data.articleVOS)
+                //运营位
+                getOperate(data.operationVOS)
+
+                //地址
+                map(data.citys)
+                //列表渲染
+                domList(data.columnCitys);
+
+
+                //活动规则
+                $(".rules .modelCity_main_cityList span").html(data.rule);
+
+
+            } else {
+                $(".activity_nav").hide();
+                $("html").css({
+                    height: '100%'
+                })
+                $("body").css({
+                    backgroundColor: 'white'
+                })
+                $("body").html(
+                    '<div class="noCardList"><img class="noCardList_img" src="/img/noCardList@2x.png"></img><div class="noCardList_span">活动不见了～</div></div>'
+                )
+            }
+        })
+    }
+    //新闻渲染
+    function getNews(data) {
+        if (data.length > 0) {
+            $('.newsBox').show();
+            $('.news').css('display', 'flex');
+        }
+        let newsStr = '';
+        if (data.length > 0) {
+            console.log('我是新闻')
+            console.log(data)
+            data.forEach(item => {
+                newsStr +=
+                    `<div class="swiper-slide clamp1 newsCli" artId="${item.articleId}">${item.articleName}</div>`
+            })
+        }
+
+
+
+        $(".newsList").html(newsStr)
+        if (data.length > 1) {
+            loadSwiper1();
+        }
+    }
+    //运营位渲染
+    function getOperate(data) {
+        console.log('运营位运营位运营位运营位运营位运营位')
+        console.log(data)
+        if (data.length > 0) {
+            $('.newsBox').show();
+            $('.adver').show();
+        }
+        let op = "";
+        if (data.length > 0) {
+            data.forEach(item => {
+                if(item.operationConfigs.length>0){
+                    op += `
+                        <div class="swiper-slide adverList">
+                            <div class="adverLeft">
+                                <img src="${item.operationConfigs[0].pictureUrl}" class="operateTu" type='${item.operationConfigs[0].type}' data="${parseData(item.operationConfigs[0])}">
+                            </div>
+                            <div class="adverRight">
+                                <span>
+                                    <img src="${item.operationConfigs[1].pictureUrl}" class="operateTu"  type='${item.operationConfigs[1].type}' data="${parseData(item.operationConfigs[1])}">
+                                </span>
+                                <span>
+                                    <img src="${item.operationConfigs[2].pictureUrl}" class="operateTu"  type='${item.operationConfigs[2].type}' data="${parseData(item.operationConfigs[2])}">
+                                </span>
+                            </div>
+                        </div>
+                    `
+                }
+                
+            })
+        }
+
+        $(".operateList").html(op);
+        if (data.length > 1) {
+            loadSwiper2();
+        }
+        if (data.length < 2) {
+            // console.log('padding-bottom')
+            // $('.swip3').css('padding-bottom','10px')
+            // $('#id或样式').find('对象').css('cssText', 'width:990px !important');
+            $(".swip3").css({
+                "cssText": "padding-bottom:10px !important;"
+            });
+        }
+    }
+
+    function parseData(data) {
+        if (data.type == 1) {
+            return data.typeValue
+        } else if (data.type == 2) {
+            return data.articleId
+        } else if (data.type == 3) {
+            return data.buildingId
+        } else if (data.type == 4) {
+            return data.operationConfigId
+        }
+    }
+    //渲染 列表
+    function domList(data, flag) {
+
+        let str1 = "",
+            str3 = '';
+        data.forEach((item, index) => {
+            !flag && (dataListAll[item.cityName].columnVOS = item.columnVOS);
+            if (flag || item.cityName.indexOf(cityName) > -1) {
+                item.columnVOS.length > 0 && item.columnVOS.forEach((res, index) => {
+                    // console.log('11111111111111111111111111111111111111')
+                    // console.log(res)
+
+                    let active = index == 0 ? "active" : '';
+                    str3 += '<li class="activity_main_li ' + active + '" currentname="conlumn' + index +
+                        '"><span>' + res.title + '</span></li>';
+                    str1 += columnList(res.columnConfigVOS, res.title, index, res.type)
+                })
+            }
+        })
+        $(".activity_main_ul").html(str3);
+        $(".activity_main_lists").html(str1);
+        $(".activity_main_li").click(function () {
+            $(".activity_main_li").removeClass("active");
+            $(this).addClass("active");
+        });
+        $(".activity_main_li").each(function (index, item) {
+            console.log($(item).find("spam").width(), $(item).width())
+            if ($(item).find("span").width() > $(item).width()) {
+                $(".activity_main_li").css({
+                    minWidth: 'auto'
+                })
+            }
+        })
+        checkWidth();
+        scrollDom();
+        clickMao();
+        clickBuilding(source)
+    }
+
+    function columnList(data, columnTitle, num, type) {
+
+        if (!data) return '';
+        let col = '',
+            col1 = "";
+        let newArray = data.length > 5 ? data.slice(0, 5) : data;
+        newArray.forEach(cou => {
+            let imgUrl = cou.albumCoverPicture || "../img/pic_default_small@2x.png";
+            let couponName = cou.couponName || "暂无名称";
+            let deaTime = cou.termOfValidityEnd,
+                ifDisabled = "",
+                newTime = new Date().valueOf();
+            let {
+                receiveTimeEnd,
+                receiveTimeStart
+            } = cou;
+            if (receiveTimeStart && receiveTimeEnd) {
+                if (new Date(receiveTimeStart.replace(new RegExp("-", 'g'), "/")).valueOf() > newTime ||
+                    new Date(
+                        receiveTimeEnd.replace(new RegExp("-", 'g'), "/")).valueOf() < newTime) {
+                    ifDisabled = "disabled";
+                }
+            }
+            if (type == 2) {
+                col += `
+                    <div class='main_messList_li'>
+                        <div class="disLeft">
+                            <div class="disLeftImg">
+                                <img src="${imgUrl}" class="main_messList_img" alt="" buildingId="${cou.buildingId}">
+                            </div>
+                            <div class="disLeftText">
+                                <p class="p1">${cou.buildingName}</p>
+                                <p class="p2"><span><img src="./img/dw.png" alt=""></span> ${cou.areaName?cou.areaName:'暂无地址'}${cou.streetName?'-':''} ${cou.streetName?cou.streetName:''}</p>
+                                <p class="p3 clamp2">${couponName}</p>
+                            </div>
+                        </div>
+                        <div class="disRight">
+                            <div class="dotted"></div>
+                            <a href="javascript:void(0)" class='${ifDisabled}' couponDetailId="${cou.couponDetailId}" onclick="receiveCard(this)">立即<br />领取</a>
+                        </div>
+                    </div>
+                `
+            }
+            if (type == 1) {
+                col += `
+                    <div class="main_messList">
+                        <div class="imgdiv"><img class="main_messList_img"
+                                src="${imgUrl}"
+                                alt="" buildingId="${cou.buildingId}"> <span class="main_messList_buildingNmae">${cou.buildingName}</span></div>
+                        <div class="main_messList_title"> <span>${couponName}</span> </div>
+                        <div class="main_messList_button main_messList_button1" buildingId='${cou.buildingId}' onclick="getPhone(this)">电话咨询</div>
+                        <div class="main_messList_button ${ifDisabled}" couponDetailId="${cou.couponDetailId}" onclick="receiveCard(this)">立即领取</div>
+                    </div>
+                `
+            }
+
+            // col += '<div class="main_messList">' +
+            //     '        <div class="imgdiv"><img class="main_messList_img" src="' + imgUrl +
+            //     '" alt="" buildingId="' + cou.buildingId + '" >' +
+            //     '        <span class="main_messList_buildingNmae">' + cou.buildingName + '</span></div>' +
+            //     '        <div class="main_messList_title">' +
+            //     '            <span >' + couponName + '</span>' +
+            //     '        </div>' +
+            //     '        <div class="main_messList_button ' + ifDisabled + '" couponDetailId="' + cou
+            //     .couponDetailId + '" onclick="receiveCard(this)">立即领取</div>' +
+            //     '</div>'
+        })
+        if (type == 1) {
+            if (data.length > 5) {
+                col += '   <div class="main_messList more" columnTitle="' + columnTitle + '" onclick=clickMore(this)>' +
+                    '      <h3 class="more_title">' + columnTitle + '</h3>' +
+                    '      <div class="more_icon"   >查看更多<em class="iconfont iconarrow_right"></em></div>' +
+                    '   </div>'
+            } else {
+                if (data.length % 3 == 1) col +=
+                    '<div class="main_messList" style="visibility:hidden"></div><div class="main_messList" style="visibility:hidden"></div>'
+                if (data.length % 3 == 2) col += '<div class="main_messList" style="visibility:hidden"></div>'
+            }
+        }
+
+        col = '<div class="main_messLists">' + col + '</div>'
+        col1 += '<div class="activity_main_list conlumn' + num + '">' +
+            '  <div class="main_list_title"><span>' + columnTitle + '</span></div>' +
+            col +
+            '</div>'
+        return col1;
+    }
+
+
+    //切换城市
+    function checkCity() {
+        if (cityCodeNew != cityCode) {
+            cityName = cityNameNew
+            cityCode = cityCodeNew;
+            domList([dataListAll[cityNameNew]], true);
+            $(".iconpoint_name").text(cityName.split("市")[0])
+        }
+    }
+    //渲染 城市
+    let dataListAll = {},
+        cityNameNew = '上海市',
+        cityCodeNew = '310100000',
+        noClickMap = false;
+
+    function map(data) {
+        let str = '';
+        cityName = cityNameNew = data[0].cityName;
+        cityCode = cityCodeNew = data[0].cityCode;
+        $(".iconpoint_name").html(cityName);
+        if (data.length < 2) noClickMap = true;
+        data.forEach(item => {
+            let currentActive = item.cityName.indexOf(cityName) > -1 ? "active" : "";
+            str += '<span  class="city ' + currentActive + '" cityName="' + item.cityName + '"  cityCode="' +
+                item.cityCode + '">' + item.cityName + '</span>';
+            dataListAll[item.cityName] = item;
+        });
+        $(".defult .modelCity_main_cityList").html(str);
+        $(".city").click(function () {
+            $(".city").removeClass("active");
+            $(this).addClass("active");
+            cityNameNew = $(this).attr("cityname");
+            cityCodeNew = $(this).attr("citycode");
+            checkCity()
+            $(".modelCity.defult").hide();
+        })
+    }
+
+    function clickMore(e) {
+        let name = $(e).attr("columnTitle");
+        let c = dataListAll[cityNameNew];
+        setSession({
+            buildMessList: JSON.stringify(c),
+            couponCityCode: cityCodeNew
+        })
+        window.location.href = "/ad/more.html?name=" + name + "&from=" + source
+    }
+
+    function checkWidth() {
+        $(".main_messList_title").each(function (index, item) {
+            let length = $(item).width() - 0,
+                dom = $(item).find("span"),
+                length1 = $(dom).width() - 0;
+            if (length1 > length) {
+                let fw = 0;
+                setInterval(function () {
+                    $(dom).css({
+                        'transform': `translateX(${fw}px)`
+                    });
+                    fw = fw - 3;
+                    if (Math.abs(fw) > length1 + 8) fw = length;
+                }, 100)
+            }
+        })
+    }
+    //获取App端的token
+    let app = '';
+    window['appPushToken'] = (userInfo) => {
+        appShare();
+        source = "app";
+        app = true;
+        if (userInfo.token) {
+            setStorage({
+                appToken: userInfo.token
+            })
+        } else {
+            setStorage({
+                appToken: ""
+            })
+        }
+        changeSource(source)
+    }
+    
+    function getPhone(val) {
+        let buildingId = val.getAttribute("buildingId");
+        let params = {
+            buildingId: buildingId,
+            source: 4
+        }
+        apiPost(api.getPhone, params).then(function (data) {
+            console.log('我是datadata')
+            console.log(data)
+            console.log(encodeURIComponent(data.mobile))
+            window.location.href = "tel:" + encodeURIComponent(data.mobile);
+        })
+    }
+    function clickMoreAll() {
+        // $('.more').eq(0).click();
+        if (app) {
+            if (window.android != null) {
+                window.android.goBuildingList()
+            } else {
+                window.webkit.messageHandlers.goBuildingList.postMessage('');
+                // window.webkit.messageHandlers.goCouponList.postMessage('')
+            }
+        } else {
+            window.location.href = "/#/houseList?backfrom="+window.location.href;
+        }
+        
+    }
+</script>
+
+</html>
